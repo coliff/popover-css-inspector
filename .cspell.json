@@ -1,0 +1,15 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "words": [
+    "borderless",
+    "christianoliff",
+    "coliff",
+    "fnames",
+    "gzipped",
+    "Oliff"
+  ],
+  "allowCompoundWords": true,
+  "useGitignore": true
+}

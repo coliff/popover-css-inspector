@@ -1,0 +1,17 @@
+{
+  "bracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "printWidth": 150
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 250
+      }
+    }
+  ]
+}

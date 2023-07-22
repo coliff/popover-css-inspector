@@ -1,0 +1,39 @@
+{
+  "name": "popover-css-inspector",
+  "version": "1.0.0-beta1",
+  "description": "",
+  "homepage": "https://github.com/coliff/popover-css-inspector",
+  "bugs": {
+    "url": "https://github.com/coliff/popover-css-inspector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coliff/popover-css-inspector.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/coliff"
+  },
+  "license": "MIT",
+  "author": "Christian Oliff (https://christianoliff.com)",
+  "main": "popover-css-inspector.min.js",
+  "scripts": {
+    "build": "npm run prettier && npm run test && npm run minify",
+    "minify": "terser --ecma 5 --keep-classnames --keep-fnames --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
+    "prettier": "prettier --write js/popover-css-inspector.js",
+    "test": "eslint js/popover-css-inspector.js"
+  },
+  "files": [
+    "popover-css-inspector.js",
+    "popover-css-inspector.min.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^3.0.0",
+    "terser": "^5.19.1"
+  }
+}
