@@ -2,7 +2,7 @@
   "name": "popover-css-inspector",
   "version": "1.0.0-beta1",
   "description": "",
-  "homepage": "https://github.com/coliff/popover-css-inspector",
+  "homepage": "https://coliff.github.io/popover-css-inspector/",
   "bugs": {
     "url": "https://github.com/coliff/popover-css-inspector/issues"
   },
@@ -24,16 +24,12 @@
     "test": "eslint js/popover-css-inspector.js"
   },
   "files": [
-    "popover-css-inspector.js",
-    "popover-css-inspector.min.js",
-    "LICENSE",
-    "package.json",
-    "README.md"
+    "js/*.js"
   ],
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^3.0.0",
-    "terser": "^5.19.1"
+    "terser": "^5.19.2"
   }
 }
