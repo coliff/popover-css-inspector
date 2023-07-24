@@ -1,7 +1,7 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta3",
-  "description": "",
+  "version": "1.0.0-beta4",
+  "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "homepage": "https://coliff.github.io/popover-css-inspector/",
   "bugs": {
     "url": "https://github.com/coliff/popover-css-inspector/issues"
