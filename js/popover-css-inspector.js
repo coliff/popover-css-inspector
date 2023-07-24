@@ -270,6 +270,32 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
       "</td></tr>";
   }
   if (
+    styles.getPropertyValue("transition") &&
+    styles.getPropertyValue("transition") !== "none" &&
+    styles.getPropertyValue("transition") !== "" &&
+    styles.getPropertyValue("transition") !== null &&
+    /show-tr/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr><td class="p p-0 pe-2"><b>transition:</b></td>' +
+      '<td class="font-monospace p-0 opacity-75">' +
+      styles.getPropertyValue("transition") +
+      "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("user-select") &&
+    styles.getPropertyValue("user-select") !== "none" &&
+    styles.getPropertyValue("user-select") !== "" &&
+    styles.getPropertyValue("user-select") !== null &&
+    !/hide-us/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr><td class="p p-0 pe-2"><b>user-select:</b></td>' +
+      '<td class="font-monospace p-0 opacity-75">' +
+      styles.getPropertyValue("user-select") +
+      "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("vertical-align") &&
     styles.getPropertyValue("vertical-align") !== "none" &&
     styles.getPropertyValue("vertical-align") !== "" &&

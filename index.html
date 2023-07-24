@@ -37,6 +37,20 @@
 
     <header class="my-3 mx-auto">
       <h1 class="display-5 fw-light">Popover CSS Inspector</h1>
+      <div class="my-4">
+        <a href="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE"><img
+            src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="LICENSE"></a>
+        <a href="https://github.com/marketplace/actions/super-linter"><img
+            src="https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg"
+            alt="GitHub Super-Linter"></a>
+        <a href="https://github.com/prettier/prettier"><img
+            src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+            alt="code style: prettier"></a>
+        <a href="https://www.npmjs.com/package/popover-css-inspector"><img
+            src="https://img.shields.io/npm/v/popover-css-inspector" alt="npm Version"></a>
+        <a href="https://www.npmjs.com/package/popover-css-inspector"><img
+            src="https://img.shields.io/npm/dt/popover-css-inspector.svg" alt="npm Downloads"></a>
+      </div>
       <p class="lead">Automatically display CSS properties for an element - perfect for design systems and style guides
       </p>
       <div style="width:fit-content" class="mx-auto">
@@ -60,7 +74,7 @@
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-secondary" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left">
+                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
                 Button
               </button>
             </div>
@@ -70,7 +84,7 @@
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-sm btn-danger" data-bs-custom-class="popover-css-inspector"
-                data-css="b br" data-bs-toggle="popover" data-bs-placement="left">
+                data-css="b br" data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
                 Small Button
               </button>
             </div>
@@ -80,7 +94,7 @@
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-lg btn-warning" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left" data-css-inspector="hide-ta hide-tt hide-ta">
+                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
                 Large Button
               </button>
             </div>
@@ -90,7 +104,8 @@
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <div class="badge bg-primary" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover"
-                data-bs-placement="left" data-css-inspector="hide-tt hide-ta show-va show-lh hide-h">
+                data-bs-placement="left" data-css-inspector="hide-tt hide-ta show-va show-lh hide-h"
+                data-bs-container=".col-12">
                 Primary badge
               </div>
             </div>
@@ -98,10 +113,10 @@
         </div>
         <div class="col-12 col-xl-6 col-xxl-4">
           <div class="py-5 ms-5">
-            <div class="py-5 ms-5">
+            <div class="py-5 ms-5" style="padding-left: 100px;">
               <input class="form-control" type="text" placeholder="Default input" aria-label="default input example"
                 data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left"
-                data-css-inspector="show-a show-lh">
+                data-css-inspector="show-a show-d show-lh" data-bs-container=".col-12">
             </div>
           </div>
         </div>
@@ -110,7 +125,7 @@
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn-close" aria-label="Close" data-bs-custom-class="popover-css-inspector"
                 data-bs-toggle="popover" data-bs-placement="left"
-                data-css-inspector="hide-fs show-bs show-bw show-o"></button>
+                data-css-inspector="hide-c hide-fs show-bs show-bw show-o" data-bs-container=".col-12"></button>
             </div>
           </div>
         </div>
