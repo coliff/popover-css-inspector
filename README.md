@@ -31,7 +31,14 @@ Several quick start options are available:
 1. Add the `data-bs-custom-class="popover-css-inspector"` to the element you'd like to show the popover on. For example, a button.
 
 ```html
-<button type="button" class="btn btn-secondary" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left">Button</button>
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-custom-class="popover-css-inspector"
+  data-bs-toggle="popover"
+  data-bs-placement="left">
+  Button
+</button>
 ```
 
 2. Load the script (either async or defer is recommended):
@@ -50,7 +57,7 @@ The script will look for any element with the `data-bs-custom-class="css-inspect
 
 ## Browser Support
 
-Works well with all the browsers supported by [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/browsers-devices/#supported-browsers)
+Works well with all the browsers supported by [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/browsers-devices/#supported-browsers).
 
 ## Credits
 
