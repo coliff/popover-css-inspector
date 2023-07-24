@@ -1,0 +1,35 @@
+name: Create and publish npm package
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: github.repository == 'coliff/popover-css-inspector'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run build
+
+      - name: Set npm Registry Auth Token
+        run: npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTOMATION_TOKEN }}
+
+      - name: Publish npm Package Publicly
+        run: npm publish
