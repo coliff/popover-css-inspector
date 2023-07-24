@@ -1,6 +1,7 @@
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE)
 [![GitHub Super-Linter](https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![npm Version](https://img.shields.io/npm/v/popover-css-inspector)](https://www.npmjs.com/package/popover-css-inspector)
 [![npm Downloads](https://img.shields.io/npm/dt/popover-css-inspector.svg)](https://www.npmjs.com/package/popover-css-inspector)
 
 # Popover CSS Inspector
@@ -13,6 +14,8 @@ Displays CSS attributes of elements in a Bootstrap popover. Ideal for design sys
 - Option to hide CSS elements - e.g. just add `data-css-inspector="hide-fs"` to prevent font-size properties from displaying
 - Some CSS properties are hidden by default - e.g. just add `data-css-inspector="show-b` to show border properties
 - Only 2 KB minified and gzipped!
+
+![Popover CSS Inspector](.github/social-preview.png)
 
 ## Quick start
 
@@ -31,7 +34,11 @@ Several quick start options are available:
 <button type="button" class="btn btn-secondary" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left">Button</button>
 ```
 
-2. Load the CSS `<script src="/js/popover-css-inspector.min.js" defer></script>`
+2. Load the script (either async or defer is recommended):
+
+```html
+<script src="/js/popover-css-inspector.min.js" defer></script>
+```
 
 ## How it works
 
