@@ -10,7 +10,8 @@
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🔎</text></svg>">
   <meta property="og:site_name" content="CSS Inspector Popovers">
   <meta property="og:title" content="Popover CSS Inspector">
-  <meta property="og:image" content="https://coliff.github.io/popover-css-inspector/.github/social-preview.png">
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/.github/social-preview.png">
   <meta property="og:description"
     content="A Bootstrap Popover CSS Inspector - ideal for style guides and design systems">
   <meta property="og:url" content="https://coliff.github.io/popover-css-inspector/">
@@ -38,18 +39,18 @@
     <header class="my-3 mx-auto">
       <h1 class="display-5 fw-light">Popover CSS Inspector</h1>
       <div class="my-4">
-        <a href="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE"><img
-            src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="LICENSE"></a>
-        <a href="https://github.com/marketplace/actions/super-linter"><img
-            src="https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg"
-            alt="GitHub Super-Linter"></a>
-        <a href="https://github.com/prettier/prettier"><img
-            src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"
+        <a href="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE">
+          <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" class="mx-md-1" alt="LICENSE"></a>
+        <a href="https://github.com/marketplace/actions/super-linter">
+          <img src="https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg"
+            class="mx-md-1" alt="GitHub Super-Linter"></a>
+        <a href="https://github.com/prettier/prettier">
+          <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" class="mx-md-1"
             alt="code style: prettier"></a>
-        <a href="https://www.npmjs.com/package/popover-css-inspector"><img
-            src="https://img.shields.io/npm/v/popover-css-inspector" alt="npm Version"></a>
-        <a href="https://www.npmjs.com/package/popover-css-inspector"><img
-            src="https://img.shields.io/npm/dt/popover-css-inspector.svg" alt="npm Downloads"></a>
+        <a href="https://www.npmjs.com/package/popover-css-inspector">
+          <img src="https://img.shields.io/npm/v/popover-css-inspector" class="mx-md-1" alt="npm Version"></a>
+        <a href="https://www.npmjs.com/package/popover-css-inspector">
+          <img src="https://img.shields.io/npm/dt/popover-css-inspector.svg" class="mx-md-1" alt="npm Downloads"></a>
       </div>
       <p class="lead">Automatically display CSS properties for an element - perfect for design systems and style guides
       </p>
@@ -57,7 +58,10 @@
         <ul class="text-start small">
           <li class="my-2">Easy to use - just add <code>data-bs-custom-class="css-inspector"</code> to the element
             (requires Bootstrap 5 JS)</li>
-          <li class="my-2">Customizable with your own CSS and Bootstrap's Popover options</li>
+          <li class="my-2">Customizable with your own CSS and Bootstrap's <a
+              href="https://getbootstrap.com/docs/5.3/components/popovers/#options" class="text-decoration-none"
+              target="_blank">Popover options</a>
+          </li>
           <li class="my-2">Option to hide CSS elements - e.g. just add <code>data-css-inspector="hide-fs"</code> to
             prevent font-size from displaying</li>
           <li class="my-2">Some CSS properties are hidden by default - e.g. just add
@@ -70,48 +74,51 @@
 
     <main>
       <div class="row bg-secondary bg-opacity-10">
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-secondary" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
+                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
+                data-bs-boundary="viewport">
                 Button
               </button>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-sm btn-danger" data-bs-custom-class="popover-css-inspector"
-                data-css="b br" data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
+                data-css="b br" data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
+                data-bs-boundary="viewport">
                 Small Button
               </button>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn btn-lg btn-warning" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12">
+                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
+                data-bs-boundary="viewport">
                 Large Button
               </button>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <div class="badge bg-primary" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover"
                 data-bs-placement="left" data-css-inspector="hide-tt hide-ta show-va show-lh hide-h"
-                data-bs-container=".col-12">
+                data-bs-container=".col-12" data-bs-boundary="viewport">
                 Primary badge
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5 ms-5">
             <div class="py-5 ms-5" style="padding-left: 100px;">
               <input class="form-control" type="text" placeholder="Default input" aria-label="default input example"
@@ -120,7 +127,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4">
+        <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
               <button type="button" class="btn-close" aria-label="Close" data-bs-custom-class="popover-css-inspector"
