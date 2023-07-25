@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta5
+ * Popover CSS Inspector v1.0.0-beta6
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -374,6 +374,15 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
       '<tr class="css-text-decoration"><td>text-decoration:</td>' + "<td>" + styles.getPropertyValue("text-decoration") + "</td></tr>";
   }
   if (
+    styles.getPropertyValue("text-indent") &&
+    styles.getPropertyValue("text-indent") !== "none" &&
+    styles.getPropertyValue("text-indent") !== "" &&
+    styles.getPropertyValue("text-indent") !== null &&
+    /show-text-indent/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-text-indent"><td>text-indent:</td>' + "<td>" + styles.getPropertyValue("text-indent") + "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("text-shadow") &&
     styles.getPropertyValue("text-shadow") !== "none" &&
     styles.getPropertyValue("text-shadow") !== "" &&
@@ -391,6 +400,15 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   ) {
     content +=
       '<tr class="css-text-transform"><td>text-transform:</td>' + "<td>" + styles.getPropertyValue("text-transform") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("text-wrap") &&
+    styles.getPropertyValue("text-wrap") !== "none" &&
+    styles.getPropertyValue("text-wrap") !== "" &&
+    styles.getPropertyValue("text-wrap") !== null &&
+    /show-text-wrap/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-text-wrap"><td>text-wrap:</td>' + "<td>" + styles.getPropertyValue("text-wrap") + "</td></tr>";
   }
   if (
     styles.getPropertyValue("transition") &&
@@ -472,10 +490,10 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   content +=
     "</table>" +
     "<style>" +
-    ".popover-css-inspector .popover-body {padding: 0.75rem;} " +
-    ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0;} " +
-    ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem;}" +
-    ".popover-css-inspector .popover-body td:nth-child(2) {opacity: 0.75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;}" +
+    ".popover-css-inspector .popover-body {padding: 0.75rem} " +
+    ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
+    ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem}" +
+    ".popover-css-inspector .popover-body td:nth-child(2) {opacity: 0.75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
     ".popover-css-inspector .css-swatch {border-width: 1px; border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
     "</style>";
   var popover = new bootstrap.Popover(popoverTriggerEl, {
