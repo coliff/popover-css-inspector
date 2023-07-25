@@ -15,7 +15,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("accent-color") &&
     styles.getPropertyValue("accent-color") !== "" &&
     styles.getPropertyValue("accent-color") !== null &&
-    /show-ac/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-accent-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-accent-color"><td>accent-color:</td>' + "<td>" + styles.getPropertyValue("accent-color") + "</td></tr>";
   }
@@ -23,7 +23,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("appearance") &&
     styles.getPropertyValue("appearance") !== "" &&
     styles.getPropertyValue("appearance") !== null &&
-    /show-ap/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-appearance/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-appearance"><td>appearance:</td>' + "<td>" + styles.getPropertyValue("appearance") + "</td></tr>";
   }
@@ -58,7 +58,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("border") !== "none" &&
     styles.getPropertyValue("border") !== "" &&
     styles.getPropertyValue("border") !== null &&
-    /show-bo/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-border/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-border"><td>border:</td>' + "<td>" + styles.getPropertyValue("border") + "</td></tr>";
   }
@@ -144,11 +144,20 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
       "</td></tr>";
   }
   if (
+    styles.getPropertyValue("color-scheme") &&
+    styles.getPropertyValue("color-scheme") !== "none" &&
+    styles.getPropertyValue("color-scheme") !== "" &&
+    styles.getPropertyValue("color-scheme") !== null &&
+    /show-color-scheme/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-color-scheme"><td>color-scheme:</td>' + "<td>" + styles.getPropertyValue("color-scheme") + "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("display") &&
     styles.getPropertyValue("display") !== "none" &&
     styles.getPropertyValue("display") !== "" &&
     styles.getPropertyValue("display") !== null &&
-    /show-d/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-display/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-display"><td>display:</td>' + "<td>" + styles.getPropertyValue("display") + "</td></tr>";
   }
@@ -166,7 +175,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("font-family") !== "none" &&
     styles.getPropertyValue("font-family") !== "" &&
     styles.getPropertyValue("font-family") !== null &&
-    /show-ff/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-font-family/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-font-family"><td>font-family:</td>' + "<td>" + styles.getPropertyValue("font-family") + "</td></tr>";
   }
@@ -178,6 +187,16 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     !/hide-fs/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-font-size"><td>font-size:</td>' + "<td>" + styles.getPropertyValue("font-size") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("font-style") &&
+    styles.getPropertyValue("font-style") !== "none" &&
+    styles.getPropertyValue("font-style") !== "normal" &&
+    styles.getPropertyValue("font-style") !== "" &&
+    styles.getPropertyValue("font-style") !== null &&
+    !/hide-font-style/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-font-style"><td>font-style:</td>' + "<td>" + styles.getPropertyValue("font-style") + "</td></tr>";
   }
   if (
     styles.getPropertyValue("font-weight") &&
@@ -194,7 +213,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("line-break") !== "none" &&
     styles.getPropertyValue("line-break") !== "" &&
     styles.getPropertyValue("line-break") !== null &&
-    /show-lb/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-line-break/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-line-break"><td>line-break:</td>' + "<td>" + styles.getPropertyValue("line-break") + "</td></tr>";
   }
@@ -396,7 +415,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("vertical-align") !== "none" &&
     styles.getPropertyValue("vertical-align") !== "" &&
     styles.getPropertyValue("vertical-align") !== null &&
-    /show-va/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-vertical-align/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr class="css-vertical-align"><td>vertical-align:</td>' + "<td>" + styles.getPropertyValue("vertical-align") + "</td></tr>";
@@ -408,7 +427,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("white-space") !== "" &&
     styles.getPropertyValue("white-space") !== null &&
     !styles.getPropertyValue("white-space").includes(".") &&
-    /show-ws/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-white-space/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-white-space"><td>white-space:</td>' + "<td>" + styles.getPropertyValue("white-space") + "</td></tr>";
   }
@@ -427,10 +446,18 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("word-break") !== "none" &&
     styles.getPropertyValue("word-break") !== "" &&
     styles.getPropertyValue("word-break") !== null &&
-    !styles.getPropertyValue("word-break").includes(".") &&
-    /show-wb/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-word-break/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-word-break"><td>word-break:</td>' + "<td>" + styles.getPropertyValue("word-break") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("word-spacing") &&
+    styles.getPropertyValue("word-spacing") !== "none" &&
+    styles.getPropertyValue("word-spacing") !== "" &&
+    styles.getPropertyValue("word-spacing") !== null &&
+    /show-word-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-word-spacing "><td>word-spacing :</td>' + "<td>" + styles.getPropertyValue("word-spacing ") + "</td></tr>";
   }
   if (
     styles.getPropertyValue("z-index") &&
@@ -438,7 +465,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("z-index") !== "" &&
     styles.getPropertyValue("z-index") !== null &&
     !styles.getPropertyValue("z-index").includes(".") &&
-    /show-zi/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-z-index/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-z-index"><td>z-index:</td>' + "<td>" + styles.getPropertyValue("z-index") + "</td></tr>";
   }
