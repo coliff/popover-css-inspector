@@ -1,6 +1,6 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta5",
+  "version": "1.0.0-beta6",
   "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "keywords": [
     "bootstrap",
