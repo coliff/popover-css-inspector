@@ -37,7 +37,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content +=
       '<tr class="css-background-color"><td>background:</td>' +
       "<td>" +
-      '<div class="css-swatch border" style="background-color:' +
+      '<div class="css-swatch" style="background-color:' +
       rgbToHex(bgColor) +
       '"></div><span class="opacity-75">' +
       rgbToHex(bgColor) +
@@ -72,7 +72,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content +=
       '<tr class="css-border-color"><td>border-color:</td>' +
       "<td>" +
-      '<div class="css-swatch border" style="background-color:' +
+      '<div class="css-swatch" style="background-color:' +
       rgbToHex(borderColor) +
       '"></div><span class="opacity-75">' +
       rgbToHex(borderColor) +
@@ -105,7 +105,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("border-width") !== "none" &&
     styles.getPropertyValue("border-width") !== "" &&
     styles.getPropertyValue("border-width") !== null &&
-    /show-bw/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    !/hide-bw/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-border-width"><td>border-width:</td>' + "<td>" + styles.getPropertyValue("border-width") + "</td></tr>";
   }
@@ -132,12 +132,12 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("color") !== "none" &&
     styles.getPropertyValue("color") !== "" &&
     styles.getPropertyValue("color") !== null &&
-    !/hide-c/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    !/hide-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr class="css-color"><td>color:</td>' +
       "<td>" +
-      '<div class="css-swatch border" style="background-color:' +
+      '<div class="css-swatch" style="background-color:' +
       rgbToHex(Color) +
       '"></div><span class="opacity-75">' +
       rgbToHex(Color) +
@@ -424,7 +424,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("user-select") !== "none" &&
     styles.getPropertyValue("user-select") !== "" &&
     styles.getPropertyValue("user-select") !== null &&
-    !/hide-us/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-user-select/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-user-select"><td>user-select:</td>' + "<td>" + styles.getPropertyValue("user-select") + "</td></tr>";
   }
@@ -492,9 +492,9 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     "<style>" +
     ".popover-css-inspector .popover-body {padding: 0.75rem} " +
     ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
-    ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem}" +
+    ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
     ".popover-css-inspector .popover-body td:nth-child(2) {opacity: 0.75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-    ".popover-css-inspector .css-swatch {border-width: 1px; border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
+    ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, 0.3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
     "</style>";
   var popover = new bootstrap.Popover(popoverTriggerEl, {
     content: content,

@@ -27,8 +27,8 @@
   ],
   "scripts": {
     "build": "npm run prettier && npm run test && npm run minify",
-    "minify": "terser --ecma 5 --keep-classnames --keep-fnames --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
-    "prettier": "prettier --write js/popover-css-inspector.js",
+    "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
+    "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
     "test": "eslint js/popover-css-inspector.js"
   },
   "devDependencies": {
