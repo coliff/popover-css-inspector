@@ -2,6 +2,13 @@
   "bracketSameLine": true,
   "overrides": [
     {
+      "files": "*.html",
+      "options": {
+        "htmlWhitespaceSensitivity": "css",
+        "printWidth": 170
+      }
+    },
+    {
       "files": "*.js",
       "options": {
         "printWidth": 140
