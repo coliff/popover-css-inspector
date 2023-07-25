@@ -1,156 +1,203 @@
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap Popover CSS Inspector</title>
+    <meta name="description" content="A Bootstrap Popover CSS Inspector - ideal for style guides and design systems" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🔎</text></svg>" />
+    <meta property="og:site_name" content="CSS Inspector Popovers" />
+    <meta property="og:title" content="Popover CSS Inspector" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/.github/social-preview.png" />
+    <meta property="og:description" content="A Bootstrap Popover CSS Inspector - ideal for style guides and design systems" />
+    <meta property="og:url" content="https://coliff.github.io/popover-css-inspector/" />
+    <link rel="author" href="https://christianoliff.com/" />
+    <meta name="twitter:creator" content="@christianoliff" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bootstrap Popover CSS Inspector</title>
-  <meta name="description" content="A Bootstrap Popover CSS Inspector - ideal for style guides and design systems">
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🔎</text></svg>">
-  <meta property="og:site_name" content="CSS Inspector Popovers">
-  <meta property="og:title" content="Popover CSS Inspector">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/.github/social-preview.png">
-  <meta property="og:description"
-    content="A Bootstrap Popover CSS Inspector - ideal for style guides and design systems">
-  <meta property="og:url" content="https://coliff.github.io/popover-css-inspector/">
-  <link rel="author" href="https://christianoliff.com/">
-  <meta name="twitter:creator" content="@christianoliff">
+    <!-- Bootstrap 5 JavaScript and CSS is required -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap 5 JavaScript and CSS is required -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Switch to dark mode if user has it set
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+      }
+    </script>
 
-  <script>
-    // Switch to dark mode if user has it set
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark');
-    }
-  </script>
+    <script src="js/popover-css-inspector.js" async></script>
+  </head>
 
-  <script src="js/popover-css-inspector.js" async></script>
-</head>
+  <body class="bg-body text-center d-flex h-100">
+    <div class="container d-flex p-3 mx-auto w-100 flex-column text-center">
+      <header class="my-3 mx-auto">
+        <h1 class="display-5 fw-light">Popover CSS Inspector</h1>
+        <div class="my-4">
+          <a href="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE">
+            <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" class="mx-md-1" alt="LICENSE"
+          /></a>
+          <a href="https://github.com/marketplace/actions/super-linter">
+            <img src="https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg" class="mx-md-1" alt="GitHub Super-Linter"
+          /></a>
+          <a href="https://github.com/prettier/prettier">
+            <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" class="mx-md-1" alt="code style: prettier"
+          /></a>
+          <a href="https://www.npmjs.com/package/popover-css-inspector"> <img src="https://img.shields.io/npm/v/popover-css-inspector" class="mx-md-1" alt="npm Version" /></a>
+          <a href="https://www.npmjs.com/package/popover-css-inspector">
+            <img src="https://img.shields.io/npm/dt/popover-css-inspector.svg" class="mx-md-1" alt="npm Downloads"
+          /></a>
+        </div>
+        <p class="lead">Automatically display CSS properties for an element - perfect for design systems and style guides</p>
+        <div style="width: fit-content" class="mx-auto">
+          <ul class="text-start small">
+            <li class="my-2">Easy to use - just add <code>data-bs-custom-class="popover-css-inspector"</code> to the element (requires Bootstrap 5 JavaScript)</li>
+            <li class="my-2">
+              Customizable with your own CSS and Bootstrap's
+              <a href="https://getbootstrap.com/docs/5.3/components/popovers/#options" class="text-decoration-none" target="_blank">Popover options</a>
+            </li>
+            <li class="my-2">Option to hide CSS elements - e.g. just add <code>data-css-inspector="hide-fs"</code> to prevent font-size from displaying</li>
+            <li class="my-2">Some CSS properties are hidden by default but can be enabled - e.g. just add <code>data-css-inspector="show-bo"</code> to show border properties</li>
+            <li class="my-2">Only 2 KB minified and gzipped!</li>
+          </ul>
+        </div>
+      </header>
 
-<body class="bg-body text-center d-flex h-100">
-
-  <div class="container d-flex p-3 mx-auto w-100 flex-column text-center">
-
-    <header class="my-3 mx-auto">
-      <h1 class="display-5 fw-light">Popover CSS Inspector</h1>
-      <div class="my-4">
-        <a href="https://raw.githubusercontent.com/coliff/popover-css-inspector/main/LICENSE">
-          <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" class="mx-md-1" alt="LICENSE"></a>
-        <a href="https://github.com/marketplace/actions/super-linter">
-          <img src="https://github.com/coliff/popover-css-inspector/workflows/Lint%20Code%20Base/badge.svg"
-            class="mx-md-1" alt="GitHub Super-Linter"></a>
-        <a href="https://github.com/prettier/prettier">
-          <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" class="mx-md-1"
-            alt="code style: prettier"></a>
-        <a href="https://www.npmjs.com/package/popover-css-inspector">
-          <img src="https://img.shields.io/npm/v/popover-css-inspector" class="mx-md-1" alt="npm Version"></a>
-        <a href="https://www.npmjs.com/package/popover-css-inspector">
-          <img src="https://img.shields.io/npm/dt/popover-css-inspector.svg" class="mx-md-1" alt="npm Downloads"></a>
-      </div>
-      <p class="lead">Automatically display CSS properties for an element - perfect for design systems and style guides
-      </p>
-      <div style="width:fit-content" class="mx-auto">
-        <ul class="text-start small">
-          <li class="my-2">Easy to use - just add <code>data-bs-custom-class="popover-css-inspector"</code> to the
-            element (requires Bootstrap 5 JavaScript)</li>
-          <li class="my-2">Customizable with your own CSS and Bootstrap's <a
-              href="https://getbootstrap.com/docs/5.3/components/popovers/#options" class="text-decoration-none"
-              target="_blank">Popover options</a>
-          </li>
-          <li class="my-2">Option to hide CSS elements - e.g. just add <code>data-css-inspector="hide-fs"</code> to
-            prevent font-size from displaying</li>
-          <li class="my-2">Some CSS properties are hidden by default but can be enabled - e.g. just add
-            <code>data-css-inspector="show-bo"</code> to show border properties
-          </li>
-          <li class="my-2">Only 2 KB minified and gzipped!</li>
-        </ul>
-      </div>
-    </header>
-
-    <main>
-      <div class="row bg-secondary bg-opacity-10">
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5">
-            <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-secondary pe-none" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
-                data-bs-boundary="viewport">
-                Button
-              </button>
+      <main>
+        <div class="row bg-secondary bg-opacity-10">
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5 ps-5 ms-5">
+                <button
+                  type="button"
+                  class="btn btn-secondary pe-none"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-bs-container=".col-12">
+                  Button
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5">
-            <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-sm btn-danger pe-none" data-bs-custom-class="popover-css-inspector"
-                data-css="b br" data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
-                data-bs-boundary="viewport">
-                Small Button
-              </button>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5 ps-5 ms-5">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-danger pe-none"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-css="b br"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-bs-container=".col-12">
+                  Small Button
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5">
-            <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-lg btn-warning pe-none" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
-                data-bs-boundary="viewport">
-                Large Button
-              </button>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5 ps-5 ms-5">
+                <button
+                  type="button"
+                  class="btn btn-lg btn-warning pe-none"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-bs-container=".col-12">
+                  Large Button
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5">
-            <div class="py-5 ps-5 ms-5">
-              <div class="badge bg-primary pe-none" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left"
-                data-css-inspector="hide-tt hide-ta show-va show-lh hide-h" data-bs-container=".col-12"
-                data-bs-boundary="viewport">
-                Primary badge
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5 ps-5 ms-5">
+                <div
+                  class="badge bg-primary pe-none"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector="hide-tt hide-ta show-va show-lh hide-h"
+                  data-bs-container=".col-12">
+                  Primary badge
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5 ms-5">
+              <div class="py-5 ms-5" style="padding-left: 100px">
+                <input
+                  class="form-control pe-none"
+                  type="text"
+                  placeholder="Default input"
+                  aria-label="default input example"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector="show-a show-b-c show-bw show-d show-lh"
+                  data-bs-container=".col-12" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5 ps-5 ms-5">
+                <button
+                  type="button"
+                  class="btn-close pe-none"
+                  aria-label="Close"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector="hide-c hide-fs show-bs show-bw show-o"
+                  data-bs-container=".col-12"></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5" style="padding-left: 230px">
+                <div
+                  class="alert alert-primary pe-none"
+                  style="max-width: 300px"
+                  role="alert"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector="hide-max-width hide-w show-b-c show-bs show-bw show-o "
+                  data-bs-container=".col-12">
+                  A simple primary alert—check it out!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5" style="padding-left: 230px">
+                <div class="spinner-border"
+                  role="status"
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector="hide-bc hide-fs hide-max-width hide-p hide-us hide-ta show-bw"
+                  data-bs-container=".col-12">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5 ms-5">
-            <div class="py-5 ms-5" style="padding-left: 100px;">
-              <input class="form-control pe-none" type="text" placeholder="Default input"
-                aria-label="default input example" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover"
-                data-bs-placement="left" data-css-inspector="show-a show-b-c show-bw show-d show-lh"
-                data-bs-container=".col-12">
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-xl-6 col-xxl-4 py-3">
-          <div class="py-5">
-            <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn-close pe-none" aria-label="Close"
-                data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left"
-                data-css-inspector="hide-c hide-fs show-bs show-bw show-o" data-bs-container=".col-12"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+      </main>
 
-    <footer class="mt-auto">
-      <p class="mt-4">
-        <a href="https://github.com/coliff/popover-css-inspector" target="_blank"
-          class="opacity-75 text-decoration-none small text-secondary">
-          &copy; 2023 Christian Oliff
-        </a>
-      </p>
-    </footer>
-
-  </div>
-</body>
-
+      <footer class="mt-auto">
+        <p class="mt-4">
+          <a href="https://github.com/coliff/popover-css-inspector" target="_blank" class="opacity-75 text-decoration-none small text-secondary">
+            &copy; 2023 Christian Oliff
+          </a>
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>
