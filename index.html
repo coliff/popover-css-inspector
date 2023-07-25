@@ -57,15 +57,15 @@
       <div style="width:fit-content" class="mx-auto">
         <ul class="text-start small">
           <li class="my-2">Easy to use - just add <code>data-bs-custom-class="popover-css-inspector"</code> to the
-            element (requires Bootstrap 5 JS)</li>
+            element (requires Bootstrap 5 JavaScript)</li>
           <li class="my-2">Customizable with your own CSS and Bootstrap's <a
               href="https://getbootstrap.com/docs/5.3/components/popovers/#options" class="text-decoration-none"
               target="_blank">Popover options</a>
           </li>
           <li class="my-2">Option to hide CSS elements - e.g. just add <code>data-css-inspector="hide-fs"</code> to
             prevent font-size from displaying</li>
-          <li class="my-2">Some CSS properties are hidden by default - e.g. just add
-            <code>data-css-inspector="show-b"</code> to show border properties
+          <li class="my-2">Some CSS properties are hidden by default but can be enabled - e.g. just add
+            <code>data-css-inspector="show-bo"</code> to show border properties
           </li>
           <li class="my-2">Only 2 KB minified and gzipped!</li>
         </ul>
@@ -77,7 +77,7 @@
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-secondary" data-bs-custom-class="popover-css-inspector"
+              <button type="button" class="btn btn-secondary pe-none" data-bs-custom-class="popover-css-inspector"
                 data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
                 data-bs-boundary="viewport">
                 Button
@@ -88,7 +88,7 @@
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-sm btn-danger" data-bs-custom-class="popover-css-inspector"
+              <button type="button" class="btn btn-sm btn-danger pe-none" data-bs-custom-class="popover-css-inspector"
                 data-css="b br" data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
                 data-bs-boundary="viewport">
                 Small Button
@@ -99,7 +99,7 @@
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn btn-lg btn-warning" data-bs-custom-class="popover-css-inspector"
+              <button type="button" class="btn btn-lg btn-warning pe-none" data-bs-custom-class="popover-css-inspector"
                 data-bs-toggle="popover" data-bs-placement="left" data-bs-container=".col-12"
                 data-bs-boundary="viewport">
                 Large Button
@@ -110,9 +110,10 @@
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
-              <div class="badge bg-primary" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover"
-                data-bs-placement="left" data-css-inspector="hide-tt hide-ta show-va show-lh hide-h"
-                data-bs-container=".col-12" data-bs-boundary="viewport">
+              <div class="badge bg-primary pe-none" data-bs-custom-class="popover-css-inspector"
+                data-bs-toggle="popover" data-bs-placement="left"
+                data-css-inspector="hide-tt hide-ta show-va show-lh hide-h" data-bs-container=".col-12"
+                data-bs-boundary="viewport">
                 Primary badge
               </div>
             </div>
@@ -121,17 +122,18 @@
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5 ms-5">
             <div class="py-5 ms-5" style="padding-left: 100px;">
-              <input class="form-control" type="text" placeholder="Default input" aria-label="default input example"
-                data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left"
-                data-css-inspector="show-a show-d show-lh" data-bs-container=".col-12">
+              <input class="form-control pe-none" type="text" placeholder="Default input"
+                aria-label="default input example" data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover"
+                data-bs-placement="left" data-css-inspector="show-a show-b-c show-bw show-d show-lh"
+                data-bs-container=".col-12">
             </div>
           </div>
         </div>
         <div class="col-12 col-xl-6 col-xxl-4 py-3">
           <div class="py-5">
             <div class="py-5 ps-5 ms-5">
-              <button type="button" class="btn-close" aria-label="Close" data-bs-custom-class="popover-css-inspector"
-                data-bs-toggle="popover" data-bs-placement="left"
+              <button type="button" class="btn-close pe-none" aria-label="Close"
+                data-bs-custom-class="popover-css-inspector" data-bs-toggle="popover" data-bs-placement="left"
                 data-css-inspector="hide-c hide-fs show-bs show-bw show-o" data-bs-container=".col-12"></button>
             </div>
           </div>

@@ -8,11 +8,11 @@
 
 Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.
 
-- Easy to use - just add `data-bs-custom-class="popover-css-inspector"` to the element (requires Bootstrap 5 JS)
+- Easy to use - just add `data-bs-custom-class="popover-css-inspector"` to the element (requires [Bootstrap 5 JavaScript](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start))
 - Customizable with your own CSS and Bootstrap's [Popover options](https://getbootstrap.com/docs/5.3/components/popovers/#options)
 - Supports Bootstrap 5 dark mode
 - Option to hide CSS elements - e.g. just add `data-css-inspector="hide-fs"` to prevent font-size properties from displaying
-- Some CSS properties are hidden by default - e.g. just add `data-css-inspector="show-b` to show border properties
+- Some CSS properties are hidden by default but can be enabled - e.g. just add `data-css-inspector="show-bo"` to show border properties
 - Only 2 KB minified and gzipped!
 
 ![Popover CSS Inspector](.github/social-preview.png)
@@ -33,7 +33,7 @@ Several quick start options are available:
 ```html
 <button
   type="button"
-  class="btn btn-secondary"
+  class="btn btn-primary"
   data-bs-toggle="popover"
   data-bs-custom-class="popover-css-inspector">
   Button
@@ -50,6 +50,8 @@ Several quick start options are available:
 
 4. All CSS properties can be hidden. For example, to hide font-size properties, add `data-css-inspector="hide-fs"` to the element.
 
+5. Optional. Consider adding the [`pe-none`](https://getbootstrap.com/docs/5.3/utilities/interactions/#pointer-events) class to the element to prevent the popover from being triggered by the user.
+
 ## How it works
 
 The script will look for any element with the `data-bs-custom-class="css-inspector"` attribute and add a click event listener to it. When clicked, it will get the element's CSS attributes and display them in a Bootstrap popover.
@@ -58,7 +60,11 @@ The script will look for any element with the `data-bs-custom-class="css-inspect
 
 [Demo page](https://coliff.github.io/popover-css-inspector/)
 
-## Browser Support
+## Known issues
+
+- Switching between light and dark mode doesn't reload the popover.
+
+## Browser support
 
 Works well with all the browsers supported by [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/browsers-devices/#supported-browsers).
 
