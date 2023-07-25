@@ -34,9 +34,8 @@ Several quick start options are available:
 <button
   type="button"
   class="btn btn-secondary"
-  data-bs-custom-class="popover-css-inspector"
   data-bs-toggle="popover"
-  data-bs-placement="left">
+  data-bs-custom-class="popover-css-inspector">
   Button
 </button>
 ```
@@ -46,6 +45,10 @@ Several quick start options are available:
 ```html
 <script src="/js/popover-css-inspector.min.js" defer></script>
 ```
+
+3. Some CSS properties are opt-in only. For example, to show border properties, add `data-css-inspector="show-b"` to the element.
+
+4. All CSS properties can be hidden. For example, to hide font-size properties, add `data-css-inspector="hide-fs"` to the element.
 
 ## How it works
 

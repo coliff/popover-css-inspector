@@ -10,7 +10,7 @@
     {
       "files": "*.md",
       "options": {
-        "printWidth": 120
+        "printWidth": 100
       }
     }
   ]
