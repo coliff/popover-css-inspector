@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta3
+ * Popover CSS Inspector v1.0.0-beta4
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -11,10 +11,22 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   var Color = styles.getPropertyValue("color");
   var content = '<table class="small p-0" style="margin:0!important">';
   if (
+    styles.getPropertyValue("accent-color") &&
+    styles.getPropertyValue("accent-color") !== "" &&
+    styles.getPropertyValue("accent-color") !== null &&
+    /show-ac/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr><td class="h p-0 pe-2"><b>accent-color:</b></td>' +
+      '<td class="font-monospace p-0 opacity-75">' +
+      styles.getPropertyValue("accent-color") +
+      "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("appearance") &&
     styles.getPropertyValue("appearance") !== "" &&
     styles.getPropertyValue("appearance") !== null &&
-    /show-a/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-ap/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr><td class="h p-0 pe-2"><b>appearance:</b></td>' +
@@ -228,15 +240,28 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   if (
     styles.getPropertyValue("max-width") &&
     styles.getPropertyValue("max-width") !== "none" &&
-    styles.getPropertyValue("max-width") !== "0px" &&
     styles.getPropertyValue("max-width") !== "" &&
     styles.getPropertyValue("max-width") !== null &&
-    /show-mw/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    !/hide-max-w/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr><td class="m p-0 pe-2"><b>max-width:</b></td>' +
       '<td class="font-monospace p-0 opacity-75">' +
       styles.getPropertyValue("max-width") +
+      "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("min-width") &&
+    styles.getPropertyValue("min-width") !== "none" &&
+    styles.getPropertyValue("min-width") !== "0px" &&
+    styles.getPropertyValue("min-width") !== "" &&
+    styles.getPropertyValue("min-width") !== null &&
+    !/hide-min-w/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr><td class="m p-0 pe-2"><b>min-width:</b></td>' +
+      '<td class="font-monospace p-0 opacity-75">' +
+      styles.getPropertyValue("min-width") +
       "</td></tr>";
   }
   if (
