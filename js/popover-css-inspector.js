@@ -9,7 +9,8 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   var styles = window.getComputedStyle(popoverTriggerEl);
   var bgColor = styles.getPropertyValue("background-color");
   var borderColor = styles.getPropertyValue("border-color");
-  var Color = styles.getPropertyValue("color");
+  var borderBottomColor = styles.getPropertyValue("border-bottom-color");
+  var color = styles.getPropertyValue("color");
   var content = '<table class="small" style="margin: 0 !important; padding: 0">';
   if (
     styles.getPropertyValue("accent-color") &&
@@ -32,7 +33,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("background-color") !== "none" &&
     styles.getPropertyValue("background-color") !== "" &&
     styles.getPropertyValue("background-color") !== null &&
-    !/hide-bc/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    !/hide-bg-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr class="css-background-color"><td>background:</td>' +
@@ -96,11 +97,27 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content += '<tr class="css-border"><td>border:</td>' + "<td>" + styles.getPropertyValue("border") + "</td></tr>";
   }
   if (
+    styles.getPropertyValue("border-bottom-color") &&
+    styles.getPropertyValue("border-bottom-color") !== "none" &&
+    styles.getPropertyValue("border-bottom-color") !== "" &&
+    styles.getPropertyValue("border-bottom-color") !== null &&
+    /show-b-bottom-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr class="css-border-color"><td>border-bottom-color:</td>' +
+      "<td>" +
+      '<div class="css-swatch" style="background-color:' +
+      rgbToHex(borderBottomColor) +
+      '"></div><span>' +
+      rgbToHex(borderBottomColor) +
+      "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("border-color") &&
     styles.getPropertyValue("border-color") !== "none" &&
     styles.getPropertyValue("border-color") !== "" &&
     styles.getPropertyValue("border-color") !== null &&
-    /show-b-c/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-b-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
       '<tr class="css-border-color"><td>border-color:</td>' +
@@ -137,7 +154,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("border-style") &&
     styles.getPropertyValue("border-style") !== "" &&
     styles.getPropertyValue("border-style") !== null &&
-    /show-border-style/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+    /show-b-style/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-border-style"><td>border-style:</td>' + "<td>" + styles.getPropertyValue("border-style") + "</td></tr>";
   }
@@ -179,9 +196,9 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
       '<tr class="css-color"><td>color:</td>' +
       "<td>" +
       '<div class="css-swatch" style="background-color:' +
-      rgbToHex(Color) +
+      rgbToHex(color) +
       '"></div><span>' +
-      rgbToHex(Color) +
+      rgbToHex(color) +
       "</td></tr>";
   }
   if (
@@ -577,12 +594,13 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     "</table>" +
     "<style>" +
     ".popover-css-inspector {max-width: 285px} " +
-    ".popover-css-inspector .popover-body {padding: 0.75rem} " +
+    ".popover-css-inspector .popover-body {padding: .75rem} " +
     ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
     ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
-    ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: 0.75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-    ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: 0.75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-    ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, 0.3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
+    ".popover-css-inspector .popover-body td:nth-child(2) {font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
+    ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .75}" +
+    ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
+    ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
     "</style>";
   var popover = new bootstrap.Popover(popoverTriggerEl, {
     content: content,

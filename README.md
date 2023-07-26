@@ -11,9 +11,9 @@ Displays CSS attributes of elements in a Bootstrap popover. Ideal for design sys
 - Easy to use - just add `data-bs-custom-class="popover-css-inspector"` to the element (requires [Bootstrap 5 JavaScript](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start))
 - Customizable with your own CSS and Bootstrap's [Popover options](https://getbootstrap.com/docs/5.3/components/popovers/#options)
 - Supports Bootstrap 5 dark mode
-- Option to hide CSS elements - e.g. just add `data-css-inspector="hide-fs"` to prevent font-size properties from displaying
-- Some CSS properties are hidden by default but can be enabled - e.g. just add `data-css-inspector="show-bo"` to show border properties
-- Only 2 KB minified and gzipped!
+- [Option to hide CSS elements](#list-of-css-properties) - e.g. just add `data-css-inspector="hide-f-size"` to prevent font-size properties from displaying
+- [Some CSS properties are hidden by default](#list-of-opt-in-css-properties) but can be enabled - e.g. just add `data-css-inspector="show-border"` to show border properties
+- Only 3 KB minified and gzipped!
 
 ![Popover CSS Inspector](.github/social-preview.png)
 
@@ -94,9 +94,10 @@ These CSS properties are displayed by default unless their value is null or empt
 | `background-repeat`   | `data-css-inspector="show-bg-repeat"`       |
 | `background-size`     | `data-css-inspector="show-bg-size"`         |
 | `border`              | `data-css-inspector="show-border"`          |
-| `border-color`        | `data-css-inspector="show-b-c"`             |
+| `border-bottom-color` | `data-css-inspector="show-b-bottom-color"`  |
+| `border-color`        | `data-css-inspector="show-b-color"`         |
 | `border-left-width`   | `data-css-inspector="show-b-left-width"`    |
-| `border-style`        | `data-css-inspector="show-border-style"`    |
+| `border-style`        | `data-css-inspector="show-b-style"`         |
 | `box-shadow`          | `data-css-inspector="show-box-shadow"`      |
 | `box-sizing`          | `data-css-inspector="show-box-sizing"`      |
 | `color-scheme`        | `data-css-inspector="show-color-scheme"`    |
