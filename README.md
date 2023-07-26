@@ -60,6 +60,78 @@ The script will look for any element with the `data-bs-custom-class="css-inspect
 
 [Demo page](https://coliff.github.io/popover-css-inspector/)
 
+## List of CSS properties
+
+These CSS properties are displayed by default unless their value is null or empty. You can also opt out with a data-attribute if needed.
+
+| Property           | Opt-out attribute                      |
+| ------------------ | -------------------------------------- |
+| `background-color` | `data-css-inspector="hide-bc"`         |
+| `border-radius`    | `data-css-inspector="hide-br"`         |
+| `border-width`     | `data-css-inspector="hide-bw"`         |
+| `color`            | `data-css-inspector="hide-color"`      |
+| `font-size`        | `data-css-inspector="hide-f-size"`     |
+| `font-style`       | `data-css-inspector="hide-f-style"`    |
+| `font-weight`      | `data-css-inspector="hide-fw"`         |
+| `height`           | `data-css-inspector="hide-h"`          |
+| `margin`           | `data-css-inspector="hide-m"`          |
+| `max-height`       | `data-css-inspector="hide-max-height"` |
+| `max-width`        | `data-css-inspector="hide-max-width"`  |
+| `opacity`          | `data-css-inspector="hide-o"`          |
+| `padding`          | `data-css-inspector="hide-p"`          |
+| `text-align`       | `data-css-inspector="hide-ta"`         |
+| `text-transform`   | `data-css-inspector="hide-tt"`         |
+| `width`            | `data-css-inspector="hide-w"`          |
+
+## List of opt-in CSS properties
+
+| Property              | Opt-in attribute                            |
+| --------------------- | ------------------------------------------- |
+| `accent-color`        | `data-css-inspector="show-accent-color"`    |
+| `appearance`          | `data-css-inspector="show-appearance"`      |
+| `background-image`    | `data-css-inspector="show-bg-image"`        |
+| `background-position` | `data-css-inspector="show-bg-position"`     |
+| `background-repeat`   | `data-css-inspector="show-bg-repeat"`       |
+| `background-size`     | `data-css-inspector="show-bg-size"`         |
+| `border`              | `data-css-inspector="show-border"`          |
+| `border-color`        | `data-css-inspector="show-b-c"`             |
+| `border-left-width`   | `data-css-inspector="show-b-left-width"`    |
+| `border-style`        | `data-css-inspector="show-border-style"`    |
+| `box-shadow`          | `data-css-inspector="show-box-shadow"`      |
+| `box-sizing`          | `data-css-inspector="show-box-sizing"`      |
+| `color-scheme`        | `data-css-inspector="show-color-scheme"`    |
+| `display`             | `data-css-inspector="show-display"`         |
+| `float`               | `data-css-inspector="show-float"`           |
+| `font-family`         | `data-css-inspector="show-font-family"`     |
+| `letter-spacing`      | `data-css-inspector="show-letter-spacing"`  |
+| `line-break`          | `data-css-inspector="show-line-break"`      |
+| `line-height`         | `data-css-inspector="show-line-height"`     |
+| `list-style`          | `data-css-inspector="show-list-style"`      |
+| `margin-bottom`       | `data-css-inspector="show-margin-bottom"`   |
+| `margin-left`         | `data-css-inspector="show-margin-left"`     |
+| `margin-right`        | `data-css-inspector="show-margin-right"`    |
+| `margin-top`          | `data-css-inspector="show-margin-top"`      |
+| `min-height`          | `data-css-inspector="show-min-height"`      |
+| `min-width`           | `data-css-inspector="show-min-width"`       |
+| `overflow`            | `data-css-inspector="show-overflow"`        |
+| `padding`             | `data-css-inspector="show-padding"`         |
+| `position`            | `data-css-inspector="show-position"`        |
+| `text-align`          | `data-css-inspector="show-text-align"`      |
+| `text-decoration`     | `data-css-inspector="show-text-decoration"` |
+| `text-indent`         | `data-css-inspector="show-text-indent"`     |
+| `text-shadow`         | `data-css-inspector="show-text-shadow"`     |
+| `text-transform`      | `data-css-inspector="show-text-transform"`  |
+| `text-wrap`           | `data-css-inspector="show-text-wrap"`       |
+| `transform`           | `data-css-inspector="show-transform"`       |
+| `transition`          | `data-css-inspector="show-transition"`      |
+| `user-select`         | `data-css-inspector="show-user-select"`     |
+| `vertical-align`      | `data-css-inspector="show-vertical-align"`  |
+| `white-space`         | `data-css-inspector="show-white-space"`     |
+| `word-break`          | `data-css-inspector="show-word-break"`      |
+| `word-spacing`        | `data-css-inspector="show-word-spacing"`    |
+| `word-wrap`           | `data-css-inspector="show-word-wrap"`       |
+| `z-index`             | `data-css-inspector="show-z-index"`         |
+
 ## Known issues
 
 - Switching between light and dark mode doesn't reload the popover.
