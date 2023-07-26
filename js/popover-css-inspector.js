@@ -21,6 +21,35 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content += '<tr class="css-accent-color"><td>accent-color:</td>' + "<td>" + styles.getPropertyValue("accent-color") + "</td></tr>";
   }
   if (
+    styles.getPropertyValue("animation") &&
+    styles.getPropertyValue("animation") !== "" &&
+    styles.getPropertyValue("animation") !== null &&
+    /show-animation-all/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-animation"><td>animation:</td>' + "<td>" + styles.getPropertyValue("animation") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("animation-name") &&
+    styles.getPropertyValue("animation-name") !== "" &&
+    styles.getPropertyValue("animation-name") !== null &&
+    /show-animation-name/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr class="css-animation-name"><td>animation-name:</td>' + "<td>" + styles.getPropertyValue("animation-name") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("animation-duration") &&
+    styles.getPropertyValue("animation-duration") !== "" &&
+    styles.getPropertyValue("animation-duration") !== null &&
+    /show-animation-duration/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr class="css-animation-duration"><td>animation-duration:</td>' +
+      "<td>" +
+      styles.getPropertyValue("animation-duration") +
+      "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("appearance") &&
     styles.getPropertyValue("appearance") !== "" &&
     styles.getPropertyValue("appearance") !== null &&
@@ -104,12 +133,25 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     /show-b-bottom-color/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content +=
-      '<tr class="css-border-color"><td>border-bottom-color:</td>' +
+      '<tr class="css-bottom-border-color"><td>border-bottom-color:</td>' +
       "<td>" +
       '<div class="css-swatch" style="background-color:' +
       rgbToHex(borderBottomColor) +
       '"></div><span>' +
       rgbToHex(borderBottomColor) +
+      "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("border-bottom-width") &&
+    styles.getPropertyValue("border-bottom-width") !== "none" &&
+    styles.getPropertyValue("border-bottom-width") !== "" &&
+    styles.getPropertyValue("border-bottom-width") !== null &&
+    /show-b-bottom-width/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr class="css-border-bottom-width"><td>border-bottom-width:</td>' +
+      "<td>" +
+      styles.getPropertyValue("border-bottom-width") +
       "</td></tr>";
   }
   if (
@@ -211,6 +253,15 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content += '<tr class="css-color-scheme"><td>color-scheme:</td>' + "<td>" + styles.getPropertyValue("color-scheme") + "</td></tr>";
   }
   if (
+    styles.getPropertyValue("cursor") &&
+    styles.getPropertyValue("cursor") !== "none" &&
+    styles.getPropertyValue("cursor") !== "" &&
+    styles.getPropertyValue("cursor") !== null &&
+    /show-cursor/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content += '<tr class="css-cursor"><td>cursor:</td>' + "<td>" + styles.getPropertyValue("cursor") + "</td></tr>";
+  }
+  if (
     styles.getPropertyValue("display") &&
     styles.getPropertyValue("display") !== "none" &&
     styles.getPropertyValue("display") !== "" &&
@@ -274,6 +325,16 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     !/hide-h/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
   ) {
     content += '<tr class="css-height"><td>height:</td>' + "<td>" + styles.getPropertyValue("height") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("justify-content") &&
+    styles.getPropertyValue("justify-content") !== "none" &&
+    styles.getPropertyValue("justify-content") !== "" &&
+    styles.getPropertyValue("justify-content") !== null &&
+    /show-justify-content/.test(popoverTriggerEl.getAttribute("data-css-inspector"))
+  ) {
+    content +=
+      '<tr class="css-justify-content"><td>justify-content:</td>' + "<td>" + styles.getPropertyValue("justify-content") + "</td></tr>";
   }
   if (
     styles.getPropertyValue("letter-spacing") &&
