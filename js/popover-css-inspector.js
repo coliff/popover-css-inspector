@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta7
+ * Popover CSS Inspector v1.0.0-beta8
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -11,7 +11,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   var borderColor = styles.getPropertyValue("border-color");
   var borderBottomColor = styles.getPropertyValue("border-bottom-color");
   var color = styles.getPropertyValue("color");
-  var content = '<table class="small" style="margin: 0 !important; padding: 0">';
+  var content = '<table class="small" style="margin: 0; padding: 0">';
   if (
     styles.getPropertyValue("accent-color") &&
     styles.getPropertyValue("accent-color") !== "" &&
@@ -485,12 +485,27 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   }
   if (
     styles.getPropertyValue("overflow") &&
-    styles.getPropertyValue("overflow") !== "none" &&
     styles.getPropertyValue("overflow") !== "" &&
     styles.getPropertyValue("overflow") !== null &&
-    /overflow/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+    /(?<!-)\boverflow\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
   ) {
     content += '<tr class="css-overflow"><td>overflow:</td>' + "<td>" + styles.getPropertyValue("overflow") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("overflow-x") &&
+    styles.getPropertyValue("overflow-x") !== "" &&
+    styles.getPropertyValue("overflow-x") !== null &&
+    /(?<!-)\boverflow-x\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+  ) {
+    content += '<tr class="css-overflow-x"><td>overflow-x:</td>' + "<td>" + styles.getPropertyValue("overflow-x") + "</td></tr>";
+  }
+  if (
+    styles.getPropertyValue("overflow-y") &&
+    styles.getPropertyValue("overflow-y") !== "" &&
+    styles.getPropertyValue("overflow-y") !== null &&
+    /(?<!-)\boverflow-y\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+  ) {
+    content += '<tr class="css-overflow-x"><td>overflow-y:</td>' + "<td>" + styles.getPropertyValue("overflow-y") + "</td></tr>";
   }
   if (
     styles.getPropertyValue("padding") &&
@@ -504,10 +519,9 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   }
   if (
     styles.getPropertyValue("position") &&
-    styles.getPropertyValue("position") !== "none" &&
     styles.getPropertyValue("position") !== "" &&
     styles.getPropertyValue("position") !== null &&
-    /position/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+    /(?<!-)\bposition\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
   ) {
     content += '<tr class="css-position"><td>position:</td>' + "<td>" + styles.getPropertyValue("position") + "</td></tr>";
   }
@@ -583,7 +597,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     styles.getPropertyValue("transition") !== "none" &&
     styles.getPropertyValue("transition") !== "" &&
     styles.getPropertyValue("transition") !== null &&
-    /transition/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+    /(?<!-)\btransition\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
   ) {
     content += '<tr class="css-transition"><td>transition:</td>' + "<td>" + styles.getPropertyValue("transition") + "</td></tr>";
   }
