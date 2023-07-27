@@ -76,7 +76,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     !/bg-color/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
   ) {
     content +=
-      '<tr class="css-background-color"><td>background:</td>' +
+      '<tr class="css-background-color"><td>background-color:</td>' +
       "<td>" +
       '<div class="css-swatch" style="background-color:' +
       rgbToHex(bgColor) +
@@ -104,7 +104,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
     content +=
       '<tr class="css-background-position"><td>background-position:</td>' +
       "<td>" +
-      styles.getPropertyValue("background-image") +
+      styles.getPropertyValue("background-position") +
       "</td></tr>";
   }
   if (

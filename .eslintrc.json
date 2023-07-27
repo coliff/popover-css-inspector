@@ -5,6 +5,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "no-duplicate-imports": "warn",
     "no-undef": "off",
     "no-unused-vars": "off"
   }
