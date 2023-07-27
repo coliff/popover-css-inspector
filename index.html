@@ -89,7 +89,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="show-line-height show-user-select"
+                  data-css-inspector-hide="user-select"
+                  data-css-inspector-show="b-width font-weight"
                   data-bs-container=".col-12">
                   Button
                 </button>
@@ -106,7 +107,8 @@
                   data-css="b br"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="show-line-height show-user-select show-vertical-align"
+                  data-css-inspector-hide="height user-select"
+                  data-css-inspector-show="b-width font-weight vertical-align"
                   data-bs-container=".col-12">
                   Small Button
                 </button>
@@ -122,7 +124,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="show-line-height show-user-select"
+                  data-css-inspector-hide="user-select"
+                  data-css-inspector-show="font-weight"
                   data-bs-container=".col-12">
                   Large Button
                 </button>
@@ -137,7 +140,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="hide-bw hide-tt hide-ta show-va show-line-height"
+                  data-css-inspector-hide="height"
+                  data-css-inspector-show="font-size font-weight padding"
                   data-bs-container=".col-12">
                   Primary badge
                 </div>
@@ -155,7 +159,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="hide-w show-a show-b-color show-bw show-d show-line-height show-bg-image"
+                  data-css-inspector-hide="width"
+                  data-css-inspector-show="b-color b-width"
                   data-bs-container=".col-12" />
               </div>
             </div>
@@ -170,7 +175,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="hide-color hide-fs"
+                  data-css-inspector-hide="bg-color color font-size"
+                  data-css-inspector-show="padding width"
                   data-bs-container=".col-12"></button>
               </div>
             </div>
@@ -185,7 +191,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="hide-max-width hide-w show-b-color show-box-shadow"
+                  data-css-inspector-hide="margin max-width width"
+                  data-css-inspector-show="b-color box-shadow margin-bottom"
                   data-bs-container=".col-12">
                   A simple primary alert—check it out!
                 </div>
@@ -201,10 +208,47 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector="hide-bg-color hide-f-size hide-p hide-ta show-animation-duration show-animation-name show-bw"
+                  data-css-inspector-hide="bg-color font-size padding"
                   data-bs-container=".col-12">
                   <span class="visually-hidden">Loading...</span>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5" style="padding-left: 230px">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="checkboxNoLabel"
+                  checked="checked"
+                  value=""
+                  aria-label="..."
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector-hide="font-size padding"
+                  data-bs-container=".col-12" />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6 py-3">
+            <div class="py-5">
+              <div class="py-5" style="padding-left: 230px">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="radioNoLabel"
+                  id="radioNoLabel"
+                  checked="checked"
+                  value=""
+                  aria-label="..."
+                  data-bs-custom-class="popover-css-inspector"
+                  data-bs-toggle="popover"
+                  data-bs-placement="left"
+                  data-css-inspector-hide="font-size padding"
+                  data-bs-container=".col-12" />
               </div>
             </div>
           </div>

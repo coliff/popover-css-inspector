@@ -11,7 +11,11 @@
     "funcs",
     "gzipped",
     "Menlo",
-    "Oliff"
+    "Neue",
+    "Noto",
+    "Oliff",
+    "Roboto",
+    "Segoe"
   ],
   "allowCompoundWords": true,
   "useGitignore": true
