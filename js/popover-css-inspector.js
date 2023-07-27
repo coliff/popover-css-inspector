@@ -666,7 +666,7 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   content +=
     "</table>" +
     "<style>" +
-    ".popover-css-inspector {z-index: 1070; display: block; max-width: 285px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; font-style: normal; text-align: left; text-shadow: none; font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: 12px} " +
+    ".popover-css-inspector {z-index: 1010 !important; display: block; max-width: 285px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; font-style: normal; text-align: left; text-decoration: none; text-shadow: none; text-transform: none; font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
     ".popover-css-inspector .popover-body {padding: .75rem} " +
     ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
     ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
