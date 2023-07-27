@@ -65,13 +65,13 @@
             </li>
             <li class="my-2">
               Option to hide CSS elements - e.g. just add
-              <code>data-css-inspector="hide-fs"</code>
+              <code>data-css-inspector="hide-font-size"</code>
               to prevent font-size from displaying
             </li>
             <li class="my-2">
               Some CSS properties are hidden by default but can be enabled - e.g. just add
-              <code>data-css-inspector="show-bo"</code>
-              to show border properties
+              <code>data-css-inspector="show-min-height"</code>
+              to show min-height value
             </li>
             <li class="my-2">Only 2 KB minified and gzipped!</li>
           </ul>
@@ -203,7 +203,7 @@
             <div class="py-5">
               <div class="py-5" style="padding-left: 230px">
                 <div
-                  class="spinner-border"
+                  class="spinner-border pe-none"
                   role="status"
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
@@ -219,7 +219,7 @@
             <div class="py-5">
               <div class="py-5" style="padding-left: 230px">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pe-none"
                   type="checkbox"
                   id="checkboxNoLabel"
                   checked="checked"
@@ -228,7 +228,7 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector-hide="font-size padding"
+                  data-css-inspector-hide="color font-size margin padding"
                   data-bs-container=".col-12" />
               </div>
             </div>
@@ -237,7 +237,7 @@
             <div class="py-5">
               <div class="py-5" style="padding-left: 230px">
                 <input
-                  class="form-check-input"
+                  class="form-check-input pe-none"
                   type="radio"
                   name="radioNoLabel"
                   id="radioNoLabel"
@@ -247,7 +247,8 @@
                   data-bs-custom-class="popover-css-inspector"
                   data-bs-toggle="popover"
                   data-bs-placement="left"
-                  data-css-inspector-hide="font-size padding"
+                  data-css-inspector-hide="color font-size margin padding"
+                  data-css-inspector-show="bg-image bg-position bg-size"
                   data-bs-container=".col-12" />
               </div>
             </div>
