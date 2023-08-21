@@ -680,13 +680,13 @@ var popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
   content +=
     "</table>" +
     "<style>" +
-    ".popover-css-inspector {z-index: 1010 !important; display: block; max-width: 285px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; font-style: normal; text-align: left; text-decoration: none; text-shadow: none; text-transform: none; font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
+    ".popover-css-inspector {z-index: 1010; display: block; max-width: 285px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; font-style: normal; font-weight: 400; line-height: 1.5;text-align: left; text-decoration: none; text-shadow: none; text-transform: none; letter-spacing: normal; word-break: normal; white-space: normal; word-spacing: normal; line-break: auto;font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
     ".popover-css-inspector .popover-body {padding: .75rem} " +
     ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
     ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
     ".popover-css-inspector .popover-body td:nth-child(2) {font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-    ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .75}" +
-    ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .75; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
+    ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .7}" +
+    ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .7; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
     ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
     "</style>";
   var popover = new bootstrap.Popover(popoverTriggerEl, {
