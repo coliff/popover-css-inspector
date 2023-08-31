@@ -3,13 +3,12 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
     versioning-strategy: increase
     reviewers:
       - coliff
     labels:
       - dependencies
-    open-pull-requests-limit: 1
   - package-ecosystem: github-actions
     directory: "/"
     schedule:

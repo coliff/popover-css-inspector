@@ -26,15 +26,17 @@
     "js/*.js"
   ],
   "scripts": {
-    "build": "npm run prettier && npm run test && npm run minify",
+    "build": "npm run prettier && npm run lint-js && npm run minify",
+    "lint-html": "npx htmlhint index.html",
+    "lint-js": "eslint js/popover-css-inspector.js",
     "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
-    "test": "eslint js/popover-css-inspector.js"
+    "test": "npm run lint-js"
   },
   "devDependencies": {
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
-    "prettier": "^3.0.2",
-    "terser": "^5.19.2"
+    "prettier": "^3.0.3",
+    "terser": "^5.19.3"
   }
 }
