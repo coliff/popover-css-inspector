@@ -1,6 +1,6 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta8",
+  "version": "1.0.0-beta9",
   "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "keywords": [
     "bootstrap",
@@ -29,14 +29,16 @@
     "build": "npm run prettier && npm run lint-js && npm run minify",
     "lint-html": "npx htmlhint index.html",
     "lint-js": "eslint js/popover-css-inspector.js",
+    "lint-markdown": "npx markdownlint-cli .",
     "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
-    "test": "npm run lint-js"
+    "test": "npm run lint-js",
+    "update-deps": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "eslint": "^8.48.0",
-    "eslint-config-prettier": "^9.0.0",
-    "prettier": "^3.0.3",
-    "terser": "^5.19.3"
+    "eslint": "8.49.0",
+    "eslint-config-prettier": "9.0.0",
+    "prettier": "3.0.3",
+    "terser": "5.19.4"
   }
 }
