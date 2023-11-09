@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta10
+ * Popover CSS Inspector v1.0.0-beta11
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -735,7 +735,7 @@ function createPopovers() {
 createPopovers();
 
 // Create a MutationObserver instance
-var observer = new MutationObserver(function (mutations) {
+var themeObserver = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.attributeName === "data-bs-theme") {
       // Recreate the popovers
@@ -745,4 +745,4 @@ var observer = new MutationObserver(function (mutations) {
 });
 
 // Start observing the body element
-observer.observe(document.documentElement, { attributes: true });
+themeObserver.observe(document.documentElement, { attributes: true });
