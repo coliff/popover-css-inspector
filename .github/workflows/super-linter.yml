@@ -8,7 +8,7 @@ on:
     branches-ignore:
       - "dependabot/**"
 
-permissions: # added using https://github.com/step-security/secure-workflows
+permissions:
   contents: read
 
 jobs:
