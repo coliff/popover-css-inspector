@@ -4,8 +4,8 @@
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
 
-var PopoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
-var popoverList = [];
+const PopoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
+let popoverList = [];
 
 function createPopovers() {
   // Dispose of existing popovers
@@ -18,12 +18,12 @@ function createPopovers() {
 
   // Create new popovers
   popoverList = PopoverTriggerList.map(function (popoverTriggerEl) {
-    var styles = window.getComputedStyle(popoverTriggerEl);
-    var bgColor = styles.getPropertyValue("background-color");
-    var borderColor = styles.getPropertyValue("border-color");
-    var borderBottomColor = styles.getPropertyValue("border-bottom-color");
-    var color = styles.getPropertyValue("color");
-    var content = '<table class="small" style="margin: 0; padding: 0">';
+    const styles = window.getComputedStyle(popoverTriggerEl);
+    const bgColor = styles.getPropertyValue("background-color");
+    const borderColor = styles.getPropertyValue("border-color");
+    const borderBottomColor = styles.getPropertyValue("border-bottom-color");
+    const color = styles.getPropertyValue("color");
+    let content = '<table class="small" style="margin: 0; padding: 0">';
     if (
       styles.getPropertyValue("accent-color") &&
       styles.getPropertyValue("accent-color") !== "" &&
@@ -705,7 +705,7 @@ function createPopovers() {
       ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
       "</style>";
 
-    var popover = new bootstrap.Popover(popoverTriggerEl, {
+    const popover = new bootstrap.Popover(popoverTriggerEl, {
       content: content,
       boundary: "window",
       html: true,
@@ -718,7 +718,7 @@ function createPopovers() {
     return popover;
 
     function rgbToHex(rgb) {
-      var match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+      const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
       if (!match) {
         return rgb;
       }
@@ -735,7 +735,7 @@ function createPopovers() {
 createPopovers();
 
 // Create a MutationObserver instance
-var themeObserver = new MutationObserver(function (mutations) {
+const themeObserver = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.attributeName === "data-bs-theme") {
       // Recreate the popovers
