@@ -141,10 +141,6 @@ _Note: Most attributes are hidden if the value is none or null._
 | `word-wrap`           | `data-css-inspector-show="word-wrap"`       |
 | `z-index`             | `data-css-inspector-show="z-index"`         |
 
-## Known issues
-
-- Switching between light and dark mode doesn't reload the popover.
-
 ## Browser support
 
 Works well with all the browsers supported by [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/browsers-devices/#supported-browsers).
