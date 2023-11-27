@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta11
+ * Popover CSS Inspector v1.0.0-beta13
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -23,7 +23,7 @@ function createPopovers() {
     const borderColor = styles.getPropertyValue("border-color");
     const borderBottomColor = styles.getPropertyValue("border-bottom-color");
     const color = styles.getPropertyValue("color");
-    let content = '<table class="small" style="margin: 0; padding: 0">';
+    let content = '<table class="small" style="margin: 0; padding: 0;">';
     if (
       styles.getPropertyValue("accent-color") &&
       styles.getPropertyValue("accent-color") !== "" &&
@@ -695,22 +695,39 @@ function createPopovers() {
     content +=
       "</table>" +
       "<style>" +
-      ".popover-css-inspector {z-index: 1010; display: block; max-width: 285px; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; font-style: normal; font-weight: 400; line-height: 1.5;text-align: left; text-decoration: none; text-shadow: none; text-transform: none; letter-spacing: normal; word-break: normal; white-space: normal; word-spacing: normal; line-break: auto;font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
-      ".popover-css-inspector .popover-body {padding: .75rem} " +
-      ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0} " +
+      ".popover-css-inspector {z-index: 1010; display: block; max-width: 285px; text-shadow: none; text-transform: none; letter-spacing: normal; word-break: normal; white-space: normal; word-spacing: normal; line-break: auto; font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
+      ".popover-css-inspector .popover-body {padding: .75rem; line-height: 1.5; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; } " +
+      ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0; font-style: normal; text-align: left; text-decoration: none;} " +
       ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
-      ".popover-css-inspector .popover-body td:nth-child(2) {font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-      ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .7}" +
-      ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .7; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}" +
-      ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem}" +
+      ".popover-css-inspector .popover-body td:nth-child(2) {font-weight: 400 !important; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important; padding-top: 1px;}" +
+      ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .7;}" +
+      ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .7; padding-top: 1px;}" +
+      ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem;}" +
+      ".popover-css-inspector[data-popper-placement='left'] {margin-right: 10px !important;}" +
+      ".popover-css-inspector[data-popper-placement='right'] {margin-left: 10px !important;}" +
+      ".popover-css-inspector[data-popper-placement='left'] .popover-arrow {position: fixed; top: 50%; transform: translateY(-50%);}" +
+      ".popover-css-inspector[data-popper-placement='right'] .popover-arrow {position: fixed; top: 50%; transform: translateY(-50%);}" +
+      ".popover-css-inspector[data-popper-placement='top'] {margin-bottom: 10px !important;}" +
+      ".popover-css-inspector[data-popper-placement='top'] .popover-arrow {position: fixed; left: 48%; transform: translateY(-40%); bottom: -12px;}" +
+      ".popover-css-inspector[data-popper-placement='bottom'] {margin-top: 10px !important;}" +
+      ".popover-css-inspector[data-popper-placement='bottom'] .popover-arrow {position: fixed; left: 48%; transform: translateY(-40%); top: -5px;}" +
       "</style>";
 
     const popover = new bootstrap.Popover(popoverTriggerEl, {
       content: content,
       boundary: "window",
       html: true,
-      offset: [0, 8],
       sanitize: false,
+      popperConfig: {
+        modifiers: [
+          {
+            name: "preventOverflow",
+            options: {
+              rootBoundary: "document",
+            },
+          },
+        ],
+      },
     });
     popover.show();
     popover._config.keyboard = false;
