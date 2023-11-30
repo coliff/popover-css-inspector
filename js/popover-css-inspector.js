@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta13
+ * Popover CSS Inspector v1.0.0-beta14
  * Copyright 2023 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -696,12 +696,13 @@ function createPopovers() {
       "</table>" +
       "<style>" +
       ".popover-css-inspector {z-index: 1010; display: block; max-width: 285px; text-shadow: none; text-transform: none; letter-spacing: normal; word-break: normal; white-space: normal; word-spacing: normal; line-break: auto; font-size: 0.875rem; border: 1px solid rgba(133, 133, 133, .3); border-radius: .5rem} " +
-      ".popover-css-inspector .popover-body {padding: .75rem; line-height: 1.5; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; } " +
+      ".popover-css-inspector .popover-body {padding: .5rem .75rem; line-height: 1.5; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial, sans-serif; } " +
       ".popover-css-inspector .popover-body td {height: 1.1rem; padding: 0; font-style: normal; text-align: left; text-decoration: none;} " +
       ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
       ".popover-css-inspector .popover-body td:nth-child(2) {font-weight: 400 !important; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important; padding-top: 1px;}" +
       ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .7;}" +
       ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .7; padding-top: 1px;}" +
+      ".popover-css-inspector .popover-header {padding: 4px; padding-left: 12px; font-size: .875em; border: 0;}" +
       ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem;}" +
       ".popover-css-inspector[data-popper-placement='left'] {margin-right: 10px !important;}" +
       ".popover-css-inspector[data-popper-placement='right'] {margin-left: 10px !important;}" +

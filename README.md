@@ -10,10 +10,12 @@ Displays CSS attributes of elements in a Bootstrap popover. Ideal for design sys
 
 - Easy to use - just add `data-bs-custom-class="popover-css-inspector"` to the element (requires [Bootstrap 5 JavaScript](https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start))
 - Customizable with your own CSS and Bootstrap's [Popover options](https://getbootstrap.com/docs/5.3/components/popovers/#options)
+- Popover remains static on the document and does not reposition on scroll
 - Supports Bootstrap 5 dark mode
 - [Option to hide CSS elements](#list-of-css-properties) - e.g. just add `data-css-inspector-hide="font-size"` to prevent font-size properties from displaying
 - [Some CSS properties are hidden by default](#list-of-opt-in-css-properties) but can be enabled - e.g. just add `data-css-inspector-show="border"` to show border properties
 - Reloads CSS attributes if the theme is changed via the `data-bs-theme` attribute - perfect for checking color value changes between light and dark mode
+- Supports optional title with `data-bs-title` attribute.
 - Only 3 KB minified and gzipped!
 
 ![Popover CSS Inspector](.github/social-preview.png)
