@@ -1,6 +1,6 @@
 /*!
  * Popover CSS Inspector v1.0.0-beta14
- * Copyright 2023 C.Oliff
+ * Copyright 2023-2024 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
 
