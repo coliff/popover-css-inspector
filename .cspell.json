@@ -14,10 +14,12 @@
     "Menlo",
     "Neue",
     "Noto",
+    "npmjs",
     "Oliff",
     "Roboto",
     "Segoe"
   ],
+  "language": "en,en-US",
   "allowCompoundWords": true,
   "useGitignore": true
 }
