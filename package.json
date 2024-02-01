@@ -39,7 +39,7 @@
   "devDependencies": {
     "eslint": "8.54.0",
     "eslint-config-prettier": "9.0.0",
-    "prettier": "3.1.0",
+    "prettier": "3.2.4",
     "terser": "5.24.0"
   }
 }
