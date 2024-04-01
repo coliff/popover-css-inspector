@@ -714,6 +714,7 @@ function createPopovers() {
       ".popover-css-inspector[data-popper-placement='bottom'] .popover-arrow {position: fixed; left: 48%; transform: translateY(-40%); top: -5px;}" +
       "</style>";
 
+    // eslint-disable-next-line no-undef
     const popover = new bootstrap.Popover(popoverTriggerEl, {
       content: content,
       boundary: "window",

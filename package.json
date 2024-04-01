@@ -31,15 +31,16 @@
     "lint-js": "eslint js/popover-css-inspector.js --fix",
     "lint-markdown": "npx markdownlint-cli .",
     "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
+    "pa11y": "npx pa11y https://coliff.github.io/popover-css-inspector/",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
     "spellcheck": "npx cspell \"*.*\" --no-progress",
     "test": "npm run lint-js",
     "update-deps": "npx npm-check-updates -u"
   },
   "devDependencies": {
-    "eslint": "8.56.0",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
-    "prettier": "3.2.4",
-    "terser": "5.27.0"
+    "prettier": "3.2.5",
+    "terser": "5.30.0"
   }
 }
