@@ -1,0 +1,29 @@
+{
+  "name": "coliff/popover-css-inspector",
+  "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides",
+  "license": "MIT",
+  "homepage": "https://github.com/coliff/popover-css-inspector#readme",
+  "keywords": [
+    "bootstrap",
+    "css",
+    "style",
+    "inspector"
+  ],
+  "authors": [
+    {
+      "name": "Christian Oliff",
+      "homepage": "https://christianoliff.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/coliff/popover-css-inspector/issues",
+    "docs": "https://github.com/coliff/popover-css-inspector#readme"
+  },
+  "funding": [
+    {
+      "type": "PayPal",
+      "url": "https://paypal.me/coliff"
+    }
+  ]
+}

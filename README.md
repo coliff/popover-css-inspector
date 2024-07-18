@@ -28,6 +28,7 @@ Several quick start options are available:
 - Clone the repo `git clone https://github.com/coliff/popover-css-inspector.git`
 - Install with [npm](https://www.npmjs.com/package/popover-css-inspector) `npm install popover-css-inspector`
 - Install with [yarn](https://yarnpkg.com/en/package/popover-css-inspector) `yarn add popover-css-inspector`
+- Install with [Composer](https://packagist.org/packages/coliff/popover-css-inspector) `composer require coliff/popover-css-inspector`
 
 ## Usage
 
