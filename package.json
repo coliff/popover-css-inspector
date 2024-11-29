@@ -33,6 +33,7 @@
     "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
     "pa11y": "npx pa11y https://coliff.github.io/popover-css-inspector/",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
+    "serve": "npx http-server -o /index.html -p 8080 -c-1",
     "spellcheck": "npx cspell \"*.*\" --no-progress",
     "test": "npm run lint-js",
     "update-deps": "npx npm-check-updates"
@@ -40,7 +41,10 @@
   "devDependencies": {
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
-    "prettier": "3.3.3",
+    "prettier": "3.4.1",
     "terser": "5.36.0"
+  },
+  "volta": {
+    "node": "18.20.5"
   }
 }
