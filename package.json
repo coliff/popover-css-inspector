@@ -1,6 +1,6 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta15",
+  "version": "1.0.0-beta16",
   "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "keywords": [
     "bootstrap",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "eslint": "8.57.1",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "10.1.1",
     "prettier": "3.5.3",
     "terser": "5.37.0"
   },
