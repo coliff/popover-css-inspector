@@ -74,7 +74,6 @@ These CSS properties are displayed by default unless their value is null or empt
 | `animation-name`     | `data-css-inspector-show="animation-name"`     |
 | `background-color`   | `data-css-inspector-hide="bg-color"`           |
 | `border-radius`      | `data-css-inspector-hide="b-radius"`           |
-| `border-width`       | `data-css-inspector-hide="b-width"`            |
 | `color`              | `data-css-inspector-hide="color"`              |
 | `font-size`          | `data-css-inspector-hide="font-size"`          |
 | `font-style`         | `data-css-inspector-hide="font-style"`         |
@@ -108,6 +107,7 @@ _Note: Most attributes are hidden if the value is none or null._
 | `border-color`        | `data-css-inspector-show="b-color"`         |
 | `border-left-width`   | `data-css-inspector-show="b-left-width"`    |
 | `border-style`        | `data-css-inspector-show="b-style"`         |
+| `border-width`        | `data-css-inspector-show="b-width"`         |
 | `box-shadow`          | `data-css-inspector-show="box-shadow"`      |
 | `box-sizing`          | `data-css-inspector-show="box-sizing"`      |
 | `color-scheme`        | `data-css-inspector-show="color-scheme"`    |

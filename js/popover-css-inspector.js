@@ -232,7 +232,7 @@ function createPopovers() {
       styles.getPropertyValue("border-width") !== "0px" &&
       styles.getPropertyValue("border-width") !== "" &&
       styles.getPropertyValue("border-width") !== null &&
-      !/b-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      /b-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content += '<tr class="css-border-width"><td>border-width:</td>' + "<td>" + styles.getPropertyValue("border-width") + "</td></tr>";
     }
