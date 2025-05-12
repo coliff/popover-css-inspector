@@ -5,13 +5,9 @@ updates:
     schedule:
       interval: monthly
     versioning-strategy: increase
-    reviewers:
-      - coliff
     labels:
       - dependencies
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: weekly
-    reviewers:
-      - coliff
