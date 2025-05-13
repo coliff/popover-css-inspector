@@ -34,15 +34,18 @@
     "pa11y": "npx pa11y https://coliff.github.io/popover-css-inspector/",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
     "serve": "npx http-server -o /index.html -p 8080 -c-1",
+    "size": "size-limit",
     "spellcheck": "npx cspell \"*.*\" --no-progress",
     "test": "npm run lint-js",
     "update-deps": "npx npm-check-updates"
   },
   "devDependencies": {
+    "@size-limit/file": "^11.2.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.5",
     "prettier": "3.5.3",
-    "terser": "5.37.0"
+    "size-limit": "^11.2.0",
+    "terser": "5.39.0"
   },
   "volta": {
     "node": "20.19.1"
