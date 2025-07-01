@@ -45,7 +45,7 @@
     "eslint-config-prettier": "10.1.5",
     "prettier": "3.6.2",
     "size-limit": "^11.2.0",
-    "terser": "5.40.0"
+    "terser": "5.43.1"
   },
   "volta": {
     "node": "20.19.1"
