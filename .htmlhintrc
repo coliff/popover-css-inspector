@@ -19,6 +19,7 @@
   "inline-script-disabled": false,
   "inline-style-disabled": false,
   "input-requires-label:": true,
+  "link-rel-canonical-require": false,
   "main-require": true,
   "meta-charset-require": true,
   "meta-description-require": true,
