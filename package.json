@@ -43,7 +43,7 @@
     "@size-limit/file": "^11.2.0",
     "eslint": "8.57.1",
     "eslint-config-prettier": "10.1.8",
-    "htmlhint": "1.7.0",
+    "htmlhint": "1.7.1",
     "prettier": "3.6.2",
     "size-limit": "^11.2.0",
     "terser": "5.43.1"
