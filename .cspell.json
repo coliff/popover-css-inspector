@@ -20,7 +20,11 @@
     "ossf",
     "Roboto",
     "SARIF",
-    "Segoe"
+    "Segoe",
+    "zizmor"
+  ],
+  "flagWords": [
+    "hte"
   ],
   "language": "en,en-US",
   "allowCompoundWords": true,
