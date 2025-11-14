@@ -7,6 +7,23 @@
 const PopoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
 let popoverList = [];
 
+/**
+ * Normalize pixel values in CSS property strings to avoid sub-pixel rendering artifacts
+ * caused by OS-level zoom or browser scaling. Rounds pixel values to whole numbers.
+ * @param {string} value - The CSS property value to normalize
+ * @returns {string} The normalized CSS value
+ */
+function normalizePixelValue(value) {
+  if (!value || typeof value !== "string") {
+    return value;
+  }
+
+  // Replace all pixel values (e.g., "10.5px", "0.8px") with rounded integers
+  return value.replace(/(\d+\.?\d*)px/g, function (match, num) {
+    return Math.round(parseFloat(num)) + "px";
+  });
+}
+
 function createPopovers() {
   // Dispose of existing popovers
   popoverList.forEach(function (popover) {
@@ -116,7 +133,7 @@ function createPopovers() {
       content +=
         '<tr class="css-background-position"><td>background-position:</td>' +
         "<td>" +
-        styles.getPropertyValue("background-position") +
+        normalizePixelValue(styles.getPropertyValue("background-position")) +
         "</td></tr>";
     }
     if (
@@ -140,7 +157,10 @@ function createPopovers() {
       /bg-size/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        '<tr class="css-background-size"><td>background-size:</td>' + "<td>" + styles.getPropertyValue("background-size") + "</td></tr>";
+        '<tr class="css-background-size"><td>background-size:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("background-size")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("border") &&
@@ -177,7 +197,7 @@ function createPopovers() {
       content +=
         '<tr class="css-border-bottom-width"><td>border-bottom-width:</td>' +
         "<td>" +
-        styles.getPropertyValue("border-bottom-width") +
+        normalizePixelValue(styles.getPropertyValue("border-bottom-width")) +
         "</td></tr>";
     }
     if (
@@ -206,7 +226,7 @@ function createPopovers() {
       content +=
         '<tr class="css-border-left-width"><td>border-left-width:</td>' +
         "<td>" +
-        styles.getPropertyValue("border-left-width") +
+        normalizePixelValue(styles.getPropertyValue("border-left-width")) +
         "</td></tr>";
     }
     if (
@@ -216,7 +236,11 @@ function createPopovers() {
       styles.getPropertyValue("border-radius") !== null &&
       !/b-radius/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-border-radius"><td>border-radius:</td>' + "<td>" + styles.getPropertyValue("border-radius") + "</td></tr>";
+      content +=
+        '<tr class="css-border-radius"><td>border-radius:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("border-radius")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("border-style") &&
@@ -234,7 +258,11 @@ function createPopovers() {
       styles.getPropertyValue("border-width") !== null &&
       /b-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-border-width"><td>border-width:</td>' + "<td>" + styles.getPropertyValue("border-width") + "</td></tr>";
+      content +=
+        '<tr class="css-border-width"><td>border-width:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("border-width")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("box-shadow") &&
@@ -243,7 +271,11 @@ function createPopovers() {
       styles.getPropertyValue("box-shadow") !== null &&
       /box-shadow/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-box-sizing"><td>box-shadow:</td>' + "<td>" + styles.getPropertyValue("box-shadow") + "</td></tr>";
+      content +=
+        '<tr class="css-box-sizing"><td>box-shadow:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("box-shadow")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("box-sizing") &&
@@ -322,7 +354,8 @@ function createPopovers() {
       styles.getPropertyValue("font-size") !== null &&
       !/font-size/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-font-size"><td>font-size:</td>' + "<td>" + styles.getPropertyValue("font-size") + "</td></tr>";
+      content +=
+        '<tr class="css-font-size"><td>font-size:</td>' + "<td>" + normalizePixelValue(styles.getPropertyValue("font-size")) + "</td></tr>";
     }
     if (
       styles.getPropertyValue("font-style") &&
@@ -351,7 +384,7 @@ function createPopovers() {
       styles.getPropertyValue("height") !== null &&
       !/(?<!-)\bheight\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-height"><td>height:</td>' + "<td>" + styles.getPropertyValue("height") + "</td></tr>";
+      content += '<tr class="css-height"><td>height:</td>' + "<td>" + normalizePixelValue(styles.getPropertyValue("height")) + "</td></tr>";
     }
     if (
       styles.getPropertyValue("justify-content") &&
@@ -371,7 +404,10 @@ function createPopovers() {
       /letter-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        '<tr class="css-letter-spacing"><td>letter-spacing:</td>' + "<td>" + styles.getPropertyValue("letter-spacing") + "</td></tr>";
+        '<tr class="css-letter-spacing"><td>letter-spacing:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("letter-spacing")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("line-break") &&
@@ -389,7 +425,11 @@ function createPopovers() {
       styles.getPropertyValue("line-height") !== null &&
       /line-height/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-line-height"><td>line-height:</td>' + "<td>" + styles.getPropertyValue("line-height") + "</td></tr>";
+      content +=
+        '<tr class="css-line-height"><td>line-height:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("line-height")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("list-style") &&
@@ -408,7 +448,7 @@ function createPopovers() {
       styles.getPropertyValue("margin") !== null &&
       !/(?<!-)\bmargin\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-margin"><td>margin:</td>' + "<td>" + styles.getPropertyValue("margin") + "</td></tr>";
+      content += '<tr class="css-margin"><td>margin:</td>' + "<td>" + normalizePixelValue(styles.getPropertyValue("margin")) + "</td></tr>";
     }
     if (
       styles.getPropertyValue("margin-bottom") &&
@@ -418,7 +458,11 @@ function createPopovers() {
       styles.getPropertyValue("margin-bottom") !== null &&
       /margin-bottom/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-margin-bottom"><td>margin-bottom:</td>' + "<td>" + styles.getPropertyValue("margin-bottom") + "</td></tr>";
+      content +=
+        '<tr class="css-margin-bottom"><td>margin-bottom:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("margin-bottom")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("margin-left") &&
@@ -428,7 +472,11 @@ function createPopovers() {
       styles.getPropertyValue("margin-left") !== null &&
       /margin-top/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-margin-left"><td>margin-left:</td>' + "<td>" + styles.getPropertyValue("margin-left") + "</td></tr>";
+      content +=
+        '<tr class="css-margin-left"><td>margin-left:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("margin-left")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("margin-right") &&
@@ -438,7 +486,11 @@ function createPopovers() {
       styles.getPropertyValue("margin-right") !== null &&
       /margin-right/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-margin-right"><td>margin-right:</td>' + "<td>" + styles.getPropertyValue("margin-right") + "</td></tr>";
+      content +=
+        '<tr class="css-margin-right"><td>margin-right:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("margin-right")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("margin-top") &&
@@ -448,7 +500,11 @@ function createPopovers() {
       styles.getPropertyValue("margin-top") !== null &&
       /margin-top/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-margin-top"><td>margin-top:</td>' + "<td>" + styles.getPropertyValue("margin-top") + "</td></tr>";
+      content +=
+        '<tr class="css-margin-top"><td>margin-top:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("margin-top")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("max-height") &&
@@ -457,7 +513,11 @@ function createPopovers() {
       styles.getPropertyValue("max-height") !== null &&
       !/max-height/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-max-height"><td>max-height:</td>' + "<td>" + styles.getPropertyValue("max-height") + "</td></tr>";
+      content +=
+        '<tr class="css-max-height"><td>max-height:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("max-height")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("max-width") &&
@@ -466,7 +526,8 @@ function createPopovers() {
       styles.getPropertyValue("max-width") !== null &&
       !/max-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-max-width"><td>max-width:</td>' + "<td>" + styles.getPropertyValue("max-width") + "</td></tr>";
+      content +=
+        '<tr class="css-max-width"><td>max-width:</td>' + "<td>" + normalizePixelValue(styles.getPropertyValue("max-width")) + "</td></tr>";
     }
     if (
       styles.getPropertyValue("min-height") &&
@@ -476,7 +537,11 @@ function createPopovers() {
       styles.getPropertyValue("min-height") !== null &&
       /min-height/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-min-width"><td>min-height:</td>' + "<td>" + styles.getPropertyValue("min-height") + "</td></tr>";
+      content +=
+        '<tr class="css-min-width"><td>min-height:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("min-height")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("min-width") &&
@@ -486,7 +551,8 @@ function createPopovers() {
       styles.getPropertyValue("min-width") !== null &&
       /min-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-min-width"><td>min-width:</td>' + "<td>" + styles.getPropertyValue("min-width") + "</td></tr>";
+      content +=
+        '<tr class="css-min-width"><td>min-width:</td>' + "<td>" + normalizePixelValue(styles.getPropertyValue("min-width")) + "</td></tr>";
     }
     if (
       styles.getPropertyValue("opacity") &&
@@ -527,10 +593,12 @@ function createPopovers() {
       styles.getPropertyValue("padding") !== "none" &&
       styles.getPropertyValue("padding") !== "" &&
       styles.getPropertyValue("padding") !== null &&
-      !styles.getPropertyValue("padding").includes(".") &&
       !/(?<!-)\bpadding\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-padding"><td>padding:</td>' + "<td>" + styles.getPropertyValue("padding") + "</td></tr>";
+      const normalizedPadding = normalizePixelValue(styles.getPropertyValue("padding"));
+      if (!normalizedPadding.includes(".")) {
+        content += '<tr class="css-padding"><td>padding:</td>' + "<td>" + normalizedPadding + "</td></tr>";
+      }
     }
     if (
       styles.getPropertyValue("position") &&
@@ -568,7 +636,11 @@ function createPopovers() {
       styles.getPropertyValue("text-indent") !== null &&
       /text-indent/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-text-indent"><td>text-indent:</td>' + "<td>" + styles.getPropertyValue("text-indent") + "</td></tr>";
+      content +=
+        '<tr class="css-text-indent"><td>text-indent:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("text-indent")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("text-shadow") &&
@@ -577,7 +649,11 @@ function createPopovers() {
       styles.getPropertyValue("text-shadow") !== null &&
       /text-shadow/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-text-shadow"><td>text-shadow:</td>' + "<td>" + styles.getPropertyValue("text-shadow") + "</td></tr>";
+      content +=
+        '<tr class="css-text-shadow"><td>text-shadow:</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("text-shadow")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("text-transform") &&
@@ -650,10 +726,12 @@ function createPopovers() {
       styles.getPropertyValue("width") !== "none" &&
       styles.getPropertyValue("width") !== "" &&
       styles.getPropertyValue("width") !== null &&
-      !styles.getPropertyValue("width").includes(".") &&
       !/(?<!-)\bwidth\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += '<tr class="css-width"><td>width:</td>' + "<td>" + styles.getPropertyValue("width") + "</td></tr>";
+      const normalizedWidth = normalizePixelValue(styles.getPropertyValue("width"));
+      if (!normalizedWidth.includes(".")) {
+        content += '<tr class="css-width"><td>width:</td>' + "<td>" + normalizedWidth + "</td></tr>";
+      }
     }
     if (
       styles.getPropertyValue("word-break") &&
@@ -671,7 +749,11 @@ function createPopovers() {
       styles.getPropertyValue("word-spacing") !== null &&
       /word-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += '<tr class="css-word-spacing "><td>word-spacing :</td>' + "<td>" + styles.getPropertyValue("word-spacing ") + "</td></tr>";
+      content +=
+        '<tr class="css-word-spacing "><td>word-spacing :</td>' +
+        "<td>" +
+        normalizePixelValue(styles.getPropertyValue("word-spacing ")) +
+        "</td></tr>";
     }
     if (
       styles.getPropertyValue("word-wrap") &&
