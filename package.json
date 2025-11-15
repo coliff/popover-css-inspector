@@ -46,9 +46,9 @@
     "htmlhint": "1.7.1",
     "prettier": "3.6.2",
     "size-limit": "^11.2.0",
-    "terser": "5.43.1"
+    "terser": "5.44.1"
   },
   "volta": {
-    "node": "20.19.4"
+    "node": "22.21.1"
   }
 }

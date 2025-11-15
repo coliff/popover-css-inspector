@@ -23,7 +23,7 @@ function createPopovers() {
     const borderColor = styles.getPropertyValue("border-color");
     const borderBottomColor = styles.getPropertyValue("border-bottom-color");
     const color = styles.getPropertyValue("color");
-    let content = '<table class="small" style="margin: 0; padding: 0;">';
+    let content = '<table class="small" style="margin: 0; padding: 0;" aria-label="CSS properties">';
     if (
       styles.getPropertyValue("accent-color") &&
       styles.getPropertyValue("accent-color") !== "" &&
