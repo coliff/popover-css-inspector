@@ -1,0 +1,9 @@
+{
+  "editor.defaultColorDecorators": "auto",
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "always",
+  },
+  "editor.formatOnSave": true
+}
