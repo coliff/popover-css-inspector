@@ -92,9 +92,9 @@ function createPopovers() {
         "<td>" +
         '<div class="css-swatch" style="background-color:' +
         rgbToHex(bgColor) +
-        '"></div><span>' +
+        '"></div><code>' +
         rgbToHex(bgColor) +
-        "</td></tr>";
+        "</code></td></tr>";
     }
     if (
       styles.getPropertyValue("background-image") &&
@@ -163,9 +163,9 @@ function createPopovers() {
         "<td>" +
         '<div class="css-swatch" style="background-color:' +
         rgbToHex(borderBottomColor) +
-        '"></div><span>' +
+        '"></div><code>' +
         rgbToHex(borderBottomColor) +
-        "</td></tr>";
+        "</code></td></tr>";
     }
     if (
       styles.getPropertyValue("border-bottom-width") &&
@@ -192,9 +192,9 @@ function createPopovers() {
         "<td>" +
         '<div class="css-swatch" style="background-color:' +
         rgbToHex(borderColor) +
-        '"></div><span>' +
+        '"></div><code>' +
         rgbToHex(borderColor) +
-        "</td></tr>";
+        "</code></td></tr>";
     }
     if (
       styles.getPropertyValue("border-left-width") &&
@@ -266,9 +266,9 @@ function createPopovers() {
         "<td>" +
         '<div class="css-swatch" style="background-color:' +
         rgbToHex(color) +
-        '"></div><span>' +
+        '"></div><code>' +
         rgbToHex(color) +
-        "</td></tr>";
+        "</code></td></tr>";
     }
     if (
       styles.getPropertyValue("color-scheme") &&
@@ -701,7 +701,7 @@ function createPopovers() {
       ".popover-css-inspector .popover-body td:nth-child(1) {font-weight: bold; padding-right: .5rem; text-wrap: nowrap !important}" +
       ".popover-css-inspector .popover-body td:nth-child(2) {font-weight: 400 !important; font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !important; padding-top: 1px;}" +
       ".popover-css-inspector .popover-body td:nth-child(2):not(:has(div)) {opacity: .7;}" +
-      ".popover-css-inspector .popover-body td:nth-child(2) span {opacity: .7; padding-top: 1px;}" +
+      ".popover-css-inspector .popover-body td:nth-child(2) code {opacity: .7; padding-top: 1px; filter: grayscale(1);}" +
       ".popover-css-inspector .popover-header {padding: 4px; padding-left: 12px; font-size: .875em; border: 0;}" +
       ".popover-css-inspector .css-swatch {border: 1px solid rgba(133, 133, 133, .3); border-radius: 50%; display: inline-block; height: 12px; width: 12px; margin-bottom: -2px; margin-right: .25rem; forced-color-adjust: none;}" +
       ".popover-css-inspector[data-popper-placement='left'] {margin-right: 10px !important;}" +

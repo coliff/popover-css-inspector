@@ -1,3 +1,7 @@
 {
-  "recommendations": ["EditorConfig.EditorConfig", "htmlhint.htmlhint", "prettier.prettier-vscode"]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "htmlhint.htmlhint",
+    "prettier.prettier-vscode"
+  ]
 }
