@@ -3,6 +3,7 @@
   "env": {
     "browser": true
   },
+  "ignorePatterns": ["*.min.js", "**/node_modules/**"],
   "extends": ["eslint:recommended", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2018
