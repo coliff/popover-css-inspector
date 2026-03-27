@@ -1,7 +1,6 @@
 {
   "version": "0.2",
-  "ignorePaths": [],
-  "dictionaryDefinitions": [],
+  "ignorePaths": ["*.min.js"],
   "words": [
     "borderless",
     "christianoliff",
