@@ -118,7 +118,7 @@ function createPopovers() {
       /bg-repeat/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-background-repeat"><td>background-repeat:</td>` + `<td>${styles.getPropertyValue("background-image")}</td></tr>`;
+        `<tr class="css-background-repeat"><td>background-repeat:</td>` + `<td>${styles.getPropertyValue("background-repeat")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("background-size") &&
