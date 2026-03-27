@@ -492,7 +492,7 @@ function createPopovers() {
       styles.getPropertyValue("overflow-y") !== null &&
       /(?<!-)\boverflow-y\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-overflow-x"><td>overflow-y:</td>` + `<td>${styles.getPropertyValue("overflow-y")}</td></tr>`;
+      content += `<tr class="css-overflow-y"><td>overflow-y:</td>` + `<td>${styles.getPropertyValue("overflow-y")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("padding") &&
