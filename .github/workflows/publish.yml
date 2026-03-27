@@ -2,6 +2,8 @@ name: Create and publish npm package
 on:
   release:
     types: [published]
+  workflow_dispatch:
+
 permissions:
   contents: read
 
