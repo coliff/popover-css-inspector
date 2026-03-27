@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "ignorePaths": ["*.min.js"],
+  "ignorePaths": ["*.min.js", "node_modules/**", ".cpsell.json"],
   "words": [
     "borderless",
     "christianoliff",
@@ -14,6 +14,7 @@
     "Menlo",
     "Neue",
     "Noto",
+    "nvmrc",
     "npmjs",
     "Oliff",
     "ossf",

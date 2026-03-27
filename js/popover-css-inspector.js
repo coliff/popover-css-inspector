@@ -1,13 +1,14 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta15
+ * Popover CSS Inspector v1.0.0-beta17
  * Copyright 2023-2024 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
 
-const PopoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
 let popoverList = [];
 
 function createPopovers() {
+  const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
+
   // Dispose of existing popovers
   popoverList.forEach((popover) => {
     popover.dispose();
@@ -17,7 +18,7 @@ function createPopovers() {
   popoverList = [];
 
   // Create new popovers
-  popoverList = PopoverTriggerList.map((popoverTriggerEl) => {
+  popoverList = popoverTriggerList.map((popoverTriggerEl) => {
     const styles = window.getComputedStyle(popoverTriggerEl);
     const bgColor = styles.getPropertyValue("background-color");
     const borderColor = styles.getPropertyValue("border-color");
@@ -398,7 +399,7 @@ function createPopovers() {
       styles.getPropertyValue("margin-left") !== "0px" &&
       styles.getPropertyValue("margin-left") !== "" &&
       styles.getPropertyValue("margin-left") !== null &&
-      /margin-top/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
+      /margin-left/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content += `<tr class="css-margin-left"><td>margin-left:</td>` + `<td>${styles.getPropertyValue("margin-left")}</td></tr>`;
     }
@@ -658,7 +659,7 @@ function createPopovers() {
       styles.getPropertyValue("z-index") !== "" &&
       styles.getPropertyValue("z-index") !== null &&
       !styles.getPropertyValue("z-index").includes(".") &&
-      /z-index/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      /z-index/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content += `<tr class="css-z-index"><td>z-index:</td>` + `<td>${styles.getPropertyValue("z-index")}</td></tr>`;
     }
