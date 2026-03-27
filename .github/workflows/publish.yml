@@ -11,7 +11,7 @@ jobs:
     if: github.repository == 'coliff/popover-css-inspector'
     permissions:
       contents: read
-      packages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -30,9 +30,6 @@ jobs:
 
       - name: Run build
         run: npm run build
-
-      - name: Set npm Registry Auth Token
-        run: npm set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTOMATION_TOKEN }}
 
       - name: Publish npm Package Publicly
         run: npm publish
