@@ -5,9 +5,10 @@
  */
 
 let popoverList = [];
+const popoverSelector = '[data-bs-custom-class*="popover-css-inspector"]';
 
 function createPopovers() {
-  const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-custom-class*="popover-css-inspector"]'));
+  const popoverTriggerList = [].slice.call(document.querySelectorAll(popoverSelector));
 
   // Dispose of existing popovers
   popoverList.forEach((popover) => {
@@ -724,15 +725,30 @@ function createPopovers() {
 // Initial creation of popovers
 createPopovers();
 
-// Create a MutationObserver instance
-const themeObserver = new MutationObserver((mutations) => {
-  mutations.forEach((mutation) => {
-    if (mutation.attributeName === "data-bs-theme") {
-      // Recreate the popovers
-      createPopovers();
-    }
-  });
+function shouldRefreshPopovers(mutation) {
+  if (mutation.type === "attributes") {
+    const { target } = mutation;
+    return mutation.attributeName === "data-bs-theme" || target.matches(popoverSelector);
+  }
+
+  return Array.from(mutation.addedNodes).some(
+    (node) => node.nodeType === Node.ELEMENT_NODE && (node.matches(popoverSelector) || node.querySelector(popoverSelector)),
+  );
+}
+
+// Recreate popovers when the theme changes or matching nodes are added/updated
+const popoverObserver = new MutationObserver((mutations) => {
+  if (!mutations.some(shouldRefreshPopovers)) {
+    return;
+  }
+
+  createPopovers();
 });
 
-// Start observing the body element
-themeObserver.observe(document.documentElement, { attributes: true });
+// Start observing theme and DOM changes
+popoverObserver.observe(document.documentElement, {
+  attributeFilter: ["data-bs-theme", "data-bs-custom-class", "data-css-inspector-show", "data-css-inspector-hide"],
+  attributes: true,
+  childList: true,
+  subtree: true,
+});
