@@ -5,20 +5,17 @@
       "files": "*.html",
       "options": {
         "htmlWhitespaceSensitivity": "css",
-        "printWidth": 170
+        "printWidth": 256
       }
     },
     {
       "files": "*.js",
       "options": {
-        "printWidth": 140
+        "printWidth": 128
       }
     },
     {
-      "files": "*.md",
-      "options": {
-        "printWidth": 100
-      }
+      "files": "*.md"
     }
   ]
 }

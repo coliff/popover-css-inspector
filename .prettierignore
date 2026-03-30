@@ -1,3 +1,4 @@
 *.min.*
 package-lock.json
 .cspell.json
+*.html
