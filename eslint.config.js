@@ -134,6 +134,7 @@ const rules = {
   "no-nested-ternary": "error",
   "no-new": "error",
   "no-new-func": "error",
+  "no-object-constructor": "error",
   "no-new-object": "error",
   "no-new-wrappers": "error",
   "no-nonoctal-decimal-escape": "error",
@@ -265,6 +266,7 @@ const rules = {
   "prefer-exponentiation-operator": "error",
   "prefer-named-capture-group": "off",
   "prefer-numeric-literals": "error",
+  "prefer-object-has-own": "error",
   "prefer-object-spread": "error",
   "prefer-promise-reject-errors": ["error", { allowEmptyReject: true }],
   "prefer-regex-literals": ["error", { disallowRedundantWrapping: true }],
@@ -308,6 +310,9 @@ const rules = {
 module.exports = [
   {
     ignores: ["**/*.min.js", "**/node_modules/**"],
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+    },
   },
   {
     files: ["eslint.config.js"],
@@ -325,6 +330,7 @@ module.exports = [
       ecmaVersion: 2022,
       sourceType: "module",
       globals: {
+        bootstrap: "readonly",
         ...globals.browser,
       },
     },

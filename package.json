@@ -1,6 +1,6 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta17",
+  "version": "1.0.0-beta18",
   "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "keywords": [
     "bootstrap",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coliff/popover-css-inspector.git"
+    "url": "git+https://github.com/coliff/popover-css-inspector.git"
   },
   "funding": {
     "type": "github",
@@ -27,7 +27,8 @@
   ],
   "scripts": {
     "build": "npm run prettier && npm run lint-js && npm run minify",
-    "lint-html": "npx htmlhint index.html",
+    "lint": "npm run lint-html && npm run lint-js",
+    "lint-html": "htmlhint index.html",
     "lint-js": "eslint js/popover-css-inspector.js --fix",
     "lint-markdown": "npx markdownlint-cli .",
     "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
