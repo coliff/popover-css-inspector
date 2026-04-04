@@ -1,6 +1,6 @@
 /*!
  * Popover CSS Inspector v1.0.0-beta17
- * Copyright 2023-2024 C.Oliff
+ * Copyright 2023-2026 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
 
@@ -32,7 +32,8 @@ function createPopovers() {
       styles.getPropertyValue("accent-color") !== null &&
       /accent-color/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-accent-color"><td>accent-color:</td>` + `<td>${styles.getPropertyValue("accent-color")}</td></tr>`;
+      content +=
+        `<tr class="css-accent-color"><td>accent-color:</td>` + `<td>${styles.getPropertyValue("accent-color")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("animation") &&
@@ -49,7 +50,9 @@ function createPopovers() {
       styles.getPropertyValue("animation-name") !== null &&
       !/animation-name/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += `<tr class="css-animation-name"><td>animation-name:</td>` + `<td>${styles.getPropertyValue("animation-name")}</td></tr>`;
+      content +=
+        `<tr class="css-animation-name"><td>animation-name:</td>` +
+        `<td>${styles.getPropertyValue("animation-name")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("animation-duration") &&
@@ -77,7 +80,8 @@ function createPopovers() {
       styles.getPropertyValue("aspect-ratio") !== null &&
       /aspect-ratio/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-aspect-ratio"><td>aspect-ratio:</td>` + `<td>${styles.getPropertyValue("aspect-ratio")}</td></tr>`;
+      content +=
+        `<tr class="css-aspect-ratio"><td>aspect-ratio:</td>` + `<td>${styles.getPropertyValue("aspect-ratio")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("background-color") &&
@@ -99,7 +103,8 @@ function createPopovers() {
       /bg-image/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-background-image"><td>background-image:</td>` + `<td>${styles.getPropertyValue("background-image")}</td></tr>`;
+        `<tr class="css-background-image"><td>background-image:</td>` +
+        `<td>${styles.getPropertyValue("background-image")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("background-position") &&
@@ -120,7 +125,8 @@ function createPopovers() {
       /bg-repeat/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-background-repeat"><td>background-repeat:</td>` + `<td>${styles.getPropertyValue("background-repeat")}</td></tr>`;
+        `<tr class="css-background-repeat"><td>background-repeat:</td>` +
+        `<td>${styles.getPropertyValue("background-repeat")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("background-size") &&
@@ -130,7 +136,8 @@ function createPopovers() {
       /bg-size/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-background-size"><td>background-size:</td>` + `<td>${styles.getPropertyValue("background-size")}</td></tr>`;
+        `<tr class="css-background-size"><td>background-size:</td>` +
+        `<td>${styles.getPropertyValue("background-size")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("border") &&
@@ -186,7 +193,8 @@ function createPopovers() {
       /b-left-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-border-left-width"><td>border-left-width:</td>` + `<td>${styles.getPropertyValue("border-left-width")}</td></tr>`;
+        `<tr class="css-border-left-width"><td>border-left-width:</td>` +
+        `<td>${styles.getPropertyValue("border-left-width")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("border-radius") &&
@@ -195,7 +203,8 @@ function createPopovers() {
       styles.getPropertyValue("border-radius") !== null &&
       !/b-radius/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += `<tr class="css-border-radius"><td>border-radius:</td>` + `<td>${styles.getPropertyValue("border-radius")}</td></tr>`;
+      content +=
+        `<tr class="css-border-radius"><td>border-radius:</td>` + `<td>${styles.getPropertyValue("border-radius")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("border-style") &&
@@ -203,7 +212,8 @@ function createPopovers() {
       styles.getPropertyValue("border-style") !== null &&
       /b-style/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-border-style"><td>border-style:</td>` + `<td>${styles.getPropertyValue("border-style")}</td></tr>`;
+      content +=
+        `<tr class="css-border-style"><td>border-style:</td>` + `<td>${styles.getPropertyValue("border-style")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("border-width") &&
@@ -213,7 +223,8 @@ function createPopovers() {
       styles.getPropertyValue("border-width") !== null &&
       /b-width/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-border-width"><td>border-width:</td>` + `<td>${styles.getPropertyValue("border-width")}</td></tr>`;
+      content +=
+        `<tr class="css-border-width"><td>border-width:</td>` + `<td>${styles.getPropertyValue("border-width")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("box-shadow") &&
@@ -252,7 +263,8 @@ function createPopovers() {
       styles.getPropertyValue("color-scheme") !== null &&
       /color-scheme/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-color-scheme"><td>color-scheme:</td>` + `<td>${styles.getPropertyValue("color-scheme")}</td></tr>`;
+      content +=
+        `<tr class="css-color-scheme"><td>color-scheme:</td>` + `<td>${styles.getPropertyValue("color-scheme")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("cursor") &&
@@ -288,7 +300,8 @@ function createPopovers() {
       styles.getPropertyValue("font-family") !== null &&
       /font-family/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-font-family"><td>font-family:</td>` + `<td>${styles.getPropertyValue("font-family")}</td></tr>`;
+      content +=
+        `<tr class="css-font-family"><td>font-family:</td>` + `<td>${styles.getPropertyValue("font-family")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("font-size") &&
@@ -317,7 +330,8 @@ function createPopovers() {
       styles.getPropertyValue("font-weight") !== null &&
       !/font-weight/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += `<tr class="css-font-weight"><td>font-weight:</td>` + `<td>${styles.getPropertyValue("font-weight")}</td></tr>`;
+      content +=
+        `<tr class="css-font-weight"><td>font-weight:</td>` + `<td>${styles.getPropertyValue("font-weight")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("height") &&
@@ -336,7 +350,8 @@ function createPopovers() {
       /justify-content/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-justify-content"><td>justify-content:</td>` + `<td>${styles.getPropertyValue("justify-content")}</td></tr>`;
+        `<tr class="css-justify-content"><td>justify-content:</td>` +
+        `<td>${styles.getPropertyValue("justify-content")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("letter-spacing") &&
@@ -345,7 +360,9 @@ function createPopovers() {
       styles.getPropertyValue("letter-spacing") !== null &&
       /letter-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-letter-spacing"><td>letter-spacing:</td>` + `<td>${styles.getPropertyValue("letter-spacing")}</td></tr>`;
+      content +=
+        `<tr class="css-letter-spacing"><td>letter-spacing:</td>` +
+        `<td>${styles.getPropertyValue("letter-spacing")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("line-break") &&
@@ -363,7 +380,8 @@ function createPopovers() {
       styles.getPropertyValue("line-height") !== null &&
       /line-height/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-line-height"><td>line-height:</td>` + `<td>${styles.getPropertyValue("line-height")}</td></tr>`;
+      content +=
+        `<tr class="css-line-height"><td>line-height:</td>` + `<td>${styles.getPropertyValue("line-height")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("list-style") &&
@@ -392,7 +410,8 @@ function createPopovers() {
       styles.getPropertyValue("margin-bottom") !== null &&
       /margin-bottom/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-margin-bottom"><td>margin-bottom:</td>` + `<td>${styles.getPropertyValue("margin-bottom")}</td></tr>`;
+      content +=
+        `<tr class="css-margin-bottom"><td>margin-bottom:</td>` + `<td>${styles.getPropertyValue("margin-bottom")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("margin-left") &&
@@ -402,7 +421,8 @@ function createPopovers() {
       styles.getPropertyValue("margin-left") !== null &&
       /margin-left/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-margin-left"><td>margin-left:</td>` + `<td>${styles.getPropertyValue("margin-left")}</td></tr>`;
+      content +=
+        `<tr class="css-margin-left"><td>margin-left:</td>` + `<td>${styles.getPropertyValue("margin-left")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("margin-right") &&
@@ -412,7 +432,8 @@ function createPopovers() {
       styles.getPropertyValue("margin-right") !== null &&
       /margin-right/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-margin-right"><td>margin-right:</td>` + `<td>${styles.getPropertyValue("margin-right")}</td></tr>`;
+      content +=
+        `<tr class="css-margin-right"><td>margin-right:</td>` + `<td>${styles.getPropertyValue("margin-right")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("margin-top") &&
@@ -533,7 +554,8 @@ function createPopovers() {
       /text-decoration/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-text-decoration"><td>text-decoration:</td>` + `<td>${styles.getPropertyValue("text-decoration")}</td></tr>`;
+        `<tr class="css-text-decoration"><td>text-decoration:</td>` +
+        `<td>${styles.getPropertyValue("text-decoration")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("text-indent") &&
@@ -542,7 +564,8 @@ function createPopovers() {
       styles.getPropertyValue("text-indent") !== null &&
       /text-indent/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-text-indent"><td>text-indent:</td>` + `<td>${styles.getPropertyValue("text-indent")}</td></tr>`;
+      content +=
+        `<tr class="css-text-indent"><td>text-indent:</td>` + `<td>${styles.getPropertyValue("text-indent")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("text-shadow") &&
@@ -551,7 +574,8 @@ function createPopovers() {
       styles.getPropertyValue("text-shadow") !== null &&
       /text-shadow/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-text-shadow"><td>text-shadow:</td>` + `<td>${styles.getPropertyValue("text-shadow")}</td></tr>`;
+      content +=
+        `<tr class="css-text-shadow"><td>text-shadow:</td>` + `<td>${styles.getPropertyValue("text-shadow")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("text-transform") &&
@@ -560,7 +584,9 @@ function createPopovers() {
       styles.getPropertyValue("text-transform") !== null &&
       !/text-transform/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
-      content += `<tr class="css-text-transform"><td>text-transform:</td>` + `<td>${styles.getPropertyValue("text-transform")}</td></tr>`;
+      content +=
+        `<tr class="css-text-transform"><td>text-transform:</td>` +
+        `<td>${styles.getPropertyValue("text-transform")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("text-wrap") &&
@@ -595,7 +621,8 @@ function createPopovers() {
       styles.getPropertyValue("user-select") !== null &&
       /user-select/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-user-select"><td>user-select:</td>` + `<td>${styles.getPropertyValue("user-select")}</td></tr>`;
+      content +=
+        `<tr class="css-user-select"><td>user-select:</td>` + `<td>${styles.getPropertyValue("user-select")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("vertical-align") &&
@@ -604,7 +631,9 @@ function createPopovers() {
       styles.getPropertyValue("vertical-align") !== null &&
       /vertical-align/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-vertical-align"><td>vertical-align:</td>` + `<td>${styles.getPropertyValue("vertical-align")}</td></tr>`;
+      content +=
+        `<tr class="css-vertical-align"><td>vertical-align:</td>` +
+        `<td>${styles.getPropertyValue("vertical-align")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("white-space") &&
@@ -615,7 +644,8 @@ function createPopovers() {
       !styles.getPropertyValue("white-space").includes(".") &&
       /white-space/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-white-space"><td>white-space:</td>` + `<td>${styles.getPropertyValue("white-space")}</td></tr>`;
+      content +=
+        `<tr class="css-white-space"><td>white-space:</td>` + `<td>${styles.getPropertyValue("white-space")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("width") &&
@@ -643,7 +673,8 @@ function createPopovers() {
       styles.getPropertyValue("word-spacing") !== null &&
       /word-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-word-spacing "><td>word-spacing :</td>` + `<td>${styles.getPropertyValue("word-spacing ")}</td></tr>`;
+      content +=
+        `<tr class="css-word-spacing "><td>word-spacing :</td>` + `<td>${styles.getPropertyValue("word-spacing ")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("word-wrap") &&
