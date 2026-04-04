@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "ignorePaths": ["*.min.js", "node_modules/**", ".cpsell.json"],
+  "ignorePaths": ["*.min.js", "node_modules/**", ".cspell.json"],
   "words": [
     "borderless",
     "christianoliff",
@@ -12,6 +12,7 @@
     "fnames",
     "funcs",
     "gzipped",
+    "htmlhint",
     "Menlo",
     "Neue",
     "Noto",
