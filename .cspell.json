@@ -25,10 +25,12 @@
     "nvmrc",
     "Oliff",
     "ossf",
+    "packagist",
     "Roboto",
     "SARIF",
     "Segoe",
-    "zizmor"
+    "zizmor",
+    "worktree"
   ],
   "flagWords": [
     "hte"

@@ -340,5 +340,11 @@ module.exports = [
     files: ["**/*.js"],
     rules,
   },
+  {
+    files: ["js/popover-css-inspector.js"],
+    rules: {
+      "max-lines": "off",
+    },
+  },
   prettier,
 ];
