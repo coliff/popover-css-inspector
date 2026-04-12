@@ -1,6 +1,6 @@
 {
   "version": "0.2",
-  "ignorePaths": ["*.min.js", "node_modules/**", ".cspell.json"],
+  "ignorePaths": ["*.min.js", "node_modules/**", ".cspell.json", "*.yml"],
   "words": [
     "borderless",
     "christianoliff",
