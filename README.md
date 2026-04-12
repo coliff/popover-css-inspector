@@ -141,16 +141,13 @@ _Note: Most attributes are hidden if the value is none or null._
 | `min-height`            | `data-css-inspector-show="min-height"`            |
 | `min-width`             | `data-css-inspector-show="min-width"`             |
 | `overflow`              | `data-css-inspector-show="overflow"`              |
-| `padding`               | `data-css-inspector-show="padding"`               |
 | `place-content`         | `data-css-inspector-show="place-content"`         |
 | `place-items`           | `data-css-inspector-show="place-items"`           |
 | `position`              | `data-css-inspector-show="position"`              |
 | `row-gap`               | `data-css-inspector-show="row-gap"`               |
-| `text-align`            | `data-css-inspector-show="text-align"`            |
 | `text-decoration`       | `data-css-inspector-show="text-decoration"`       |
 | `text-indent`           | `data-css-inspector-show="text-indent"`           |
 | `text-shadow`           | `data-css-inspector-show="text-shadow"`           |
-| `text-transform`        | `data-css-inspector-show="text-transform"`        |
 | `text-wrap`             | `data-css-inspector-show="text-wrap"`             |
 | `transform`             | `data-css-inspector-show="transform"`             |
 | `transition`            | `data-css-inspector-show="transition"`            |
