@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta19
+ * Popover CSS Inspector v1.0.0-beta20
  * Copyright 2023-2026 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -86,7 +86,7 @@ function createPopovers() {
       styles.getPropertyValue("animation-name") !== "none" &&
       styles.getPropertyValue("animation-name") !== "" &&
       styles.getPropertyValue("animation-name") !== null &&
-      !/animation-name/.test(hideProperties)
+      /animation-name/.test(showProperties)
     ) {
       content +=
         `<tr class="css-animation-name"><td>animation-name:</td>` +
@@ -97,11 +97,77 @@ function createPopovers() {
       styles.getPropertyValue("animation-duration") !== "0s" &&
       styles.getPropertyValue("animation-duration") !== "" &&
       styles.getPropertyValue("animation-duration") !== null &&
-      !/animation-duration/.test(hideProperties)
+      /animation-duration/.test(showProperties)
     ) {
       content +=
         `<tr class="css-animation-duration"><td>animation-duration:</td>` +
         `<td>${styles.getPropertyValue("animation-duration")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-delay") &&
+      styles.getPropertyValue("animation-delay") !== "0s" &&
+      styles.getPropertyValue("animation-delay") !== "" &&
+      styles.getPropertyValue("animation-delay") !== null &&
+      /animation-delay/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-delay"><td>animation-delay:</td>` +
+        `<td>${styles.getPropertyValue("animation-delay")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-direction") &&
+      styles.getPropertyValue("animation-direction") !== "normal" &&
+      styles.getPropertyValue("animation-direction") !== "" &&
+      styles.getPropertyValue("animation-direction") !== null &&
+      /animation-direction/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-direction"><td>animation-direction:</td>` +
+        `<td>${styles.getPropertyValue("animation-direction")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-fill-mode") &&
+      styles.getPropertyValue("animation-fill-mode") !== "none" &&
+      styles.getPropertyValue("animation-fill-mode") !== "" &&
+      styles.getPropertyValue("animation-fill-mode") !== null &&
+      /animation-fill-mode/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-fill-mode"><td>animation-fill-mode:</td>` +
+        `<td>${styles.getPropertyValue("animation-fill-mode")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-iteration-count") &&
+      styles.getPropertyValue("animation-iteration-count") !== "1" &&
+      styles.getPropertyValue("animation-iteration-count") !== "" &&
+      styles.getPropertyValue("animation-iteration-count") !== null &&
+      /animation-iteration-count/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-iteration-count"><td>animation-iteration-count:</td>` +
+        `<td>${styles.getPropertyValue("animation-iteration-count")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-play-state") &&
+      styles.getPropertyValue("animation-play-state") !== "running" &&
+      styles.getPropertyValue("animation-play-state") !== "" &&
+      styles.getPropertyValue("animation-play-state") !== null &&
+      /animation-play-state/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-play-state"><td>animation-play-state:</td>` +
+        `<td>${styles.getPropertyValue("animation-play-state")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("animation-timing-function") &&
+      styles.getPropertyValue("animation-timing-function") !== "ease" &&
+      styles.getPropertyValue("animation-timing-function") !== "" &&
+      styles.getPropertyValue("animation-timing-function") !== null &&
+      /animation-timing-function/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-animation-timing-function"><td>animation-timing-function:</td>` +
+        `<td>${styles.getPropertyValue("animation-timing-function")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("appearance") &&
@@ -143,6 +209,28 @@ function createPopovers() {
       content +=
         `<tr class="css-background-image"><td>background-image:</td>` +
         `<td>${styles.getPropertyValue("background-image")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("background-blend-mode") &&
+      styles.getPropertyValue("background-blend-mode") !== "normal" &&
+      styles.getPropertyValue("background-blend-mode") !== "" &&
+      styles.getPropertyValue("background-blend-mode") !== null &&
+      /background-blend-mode/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-background-blend-mode"><td>background-blend-mode:</td>` +
+        `<td>${styles.getPropertyValue("background-blend-mode")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("mix-blend-mode") &&
+      styles.getPropertyValue("mix-blend-mode") !== "normal" &&
+      styles.getPropertyValue("mix-blend-mode") !== "" &&
+      styles.getPropertyValue("mix-blend-mode") !== null &&
+      /mix-blend-mode/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-mix-blend-mode"><td>mix-blend-mode:</td>` +
+        `<td>${styles.getPropertyValue("mix-blend-mode")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("background-position") &&
@@ -283,6 +371,15 @@ function createPopovers() {
       content += `<tr class="css-box-sizing"><td>box-sizing:</td>` + `<td>${styles.getPropertyValue("box-sizing")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("clip-path") &&
+      styles.getPropertyValue("clip-path") !== "none" &&
+      styles.getPropertyValue("clip-path") !== "" &&
+      styles.getPropertyValue("clip-path") !== null &&
+      /clip-path/.test(showProperties)
+    ) {
+      content += `<tr class="css-clip-path"><td>clip-path:</td>` + `<td>${styles.getPropertyValue("clip-path")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("color") &&
       styles.getPropertyValue("color") !== "none" &&
       styles.getPropertyValue("color") !== "" &&
@@ -331,6 +428,15 @@ function createPopovers() {
       /display/.test(showProperties)
     ) {
       content += `<tr class="css-display"><td>display:</td>` + `<td>${styles.getPropertyValue("display")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("filter") &&
+      styles.getPropertyValue("filter") !== "none" &&
+      styles.getPropertyValue("filter") !== "" &&
+      styles.getPropertyValue("filter") !== null &&
+      /(?<!-)\bfilter\b(?!-)/.test(showProperties)
+    ) {
+      content += `<tr class="css-filter"><td>filter:</td>` + `<td>${styles.getPropertyValue("filter")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("float") &&
@@ -490,6 +596,15 @@ function createPopovers() {
       /hyphens/.test(showProperties)
     ) {
       content += `<tr class="css-hyphens"><td>hyphens:</td>` + `<td>${styles.getPropertyValue("hyphens")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("isolation") &&
+      styles.getPropertyValue("isolation") !== "auto" &&
+      styles.getPropertyValue("isolation") !== "" &&
+      styles.getPropertyValue("isolation") !== null &&
+      /isolation/.test(showProperties)
+    ) {
+      content += `<tr class="css-isolation"><td>isolation:</td>` + `<td>${styles.getPropertyValue("isolation")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("justify-content") &&
@@ -687,6 +802,26 @@ function createPopovers() {
         `<td>${styles.getPropertyValue("object-position")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("outline") &&
+      styles.getPropertyValue("outline") !== "none" &&
+      styles.getPropertyValue("outline") !== "" &&
+      styles.getPropertyValue("outline") !== null &&
+      /(?<!-)\boutline\b(?!-)/.test(showProperties)
+    ) {
+      content += `<tr class="css-outline"><td>outline:</td>` + `<td>${styles.getPropertyValue("outline")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("outline-offset") &&
+      styles.getPropertyValue("outline-offset") !== "0px" &&
+      styles.getPropertyValue("outline-offset") !== "" &&
+      styles.getPropertyValue("outline-offset") !== null &&
+      /outline-offset/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-outline-offset"><td>outline-offset:</td>` +
+        `<td>${styles.getPropertyValue("outline-offset")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("overflow") &&
       styles.getPropertyValue("overflow") !== "" &&
       styles.getPropertyValue("overflow") !== null &&
@@ -719,6 +854,17 @@ function createPopovers() {
     ) {
       content +=
         `<tr class="css-overflow-wrap"><td>overflow-wrap:</td>` + `<td>${styles.getPropertyValue("overflow-wrap")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("pointer-events") &&
+      styles.getPropertyValue("pointer-events") !== "auto" &&
+      styles.getPropertyValue("pointer-events") !== "" &&
+      styles.getPropertyValue("pointer-events") !== null &&
+      /pointer-events/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-pointer-events"><td>pointer-events:</td>` +
+        `<td>${styles.getPropertyValue("pointer-events")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("padding") &&
@@ -869,9 +1015,21 @@ function createPopovers() {
       styles.getPropertyValue("transform") !== "none" &&
       styles.getPropertyValue("transform") !== "" &&
       styles.getPropertyValue("transform") !== null &&
-      /transform/.test(showProperties)
+      /(?<!-)\btransform\b(?!-)/.test(showProperties)
     ) {
       content += `<tr class="css-transform"><td>transform:</td>` + `<td>${styles.getPropertyValue("transform")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("transform-origin") &&
+      styles.getPropertyValue("transform-origin") !== "50% 50%" &&
+      styles.getPropertyValue("transform-origin") !== "50% 50% 0px" &&
+      styles.getPropertyValue("transform-origin") !== "" &&
+      styles.getPropertyValue("transform-origin") !== null &&
+      /transform-origin/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-transform-origin"><td>transform-origin:</td>` +
+        `<td>${styles.getPropertyValue("transform-origin")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("transition") &&
@@ -881,6 +1039,62 @@ function createPopovers() {
       /(?<!-)\btransition\b(?!-)/.test(showProperties)
     ) {
       content += `<tr class="css-transition"><td>transition:</td>` + `<td>${styles.getPropertyValue("transition")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("transition-delay") &&
+      styles.getPropertyValue("transition-delay") !== "0s" &&
+      styles.getPropertyValue("transition-delay") !== "" &&
+      styles.getPropertyValue("transition-delay") !== null &&
+      /transition-delay/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-transition-delay"><td>transition-delay:</td>` +
+        `<td>${styles.getPropertyValue("transition-delay")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("transition-duration") &&
+      styles.getPropertyValue("transition-duration") !== "0s" &&
+      styles.getPropertyValue("transition-duration") !== "" &&
+      styles.getPropertyValue("transition-duration") !== null &&
+      /transition-duration/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-transition-duration"><td>transition-duration:</td>` +
+        `<td>${styles.getPropertyValue("transition-duration")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("transition-property") &&
+      styles.getPropertyValue("transition-property") !== "all" &&
+      styles.getPropertyValue("transition-property") !== "none" &&
+      styles.getPropertyValue("transition-property") !== "" &&
+      styles.getPropertyValue("transition-property") !== null &&
+      /transition-property/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-transition-property"><td>transition-property:</td>` +
+        `<td>${styles.getPropertyValue("transition-property")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("transition-timing-function") &&
+      styles.getPropertyValue("transition-timing-function") !== "ease" &&
+      styles.getPropertyValue("transition-timing-function") !== "" &&
+      styles.getPropertyValue("transition-timing-function") !== null &&
+      /transition-timing-function/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-transition-timing-function"><td>transition-timing-function:</td>` +
+        `<td>${styles.getPropertyValue("transition-timing-function")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("backdrop-filter") &&
+      styles.getPropertyValue("backdrop-filter") !== "none" &&
+      styles.getPropertyValue("backdrop-filter") !== "" &&
+      styles.getPropertyValue("backdrop-filter") !== null &&
+      /backdrop-filter/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-backdrop-filter"><td>backdrop-filter:</td>` +
+        `<td>${styles.getPropertyValue("backdrop-filter")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("user-select") &&
@@ -922,6 +1136,16 @@ function createPopovers() {
     ) {
       content +=
         `<tr class="css-writing-mode"><td>writing-mode:</td>` + `<td>${styles.getPropertyValue("writing-mode")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("will-change") &&
+      styles.getPropertyValue("will-change") !== "auto" &&
+      styles.getPropertyValue("will-change") !== "" &&
+      styles.getPropertyValue("will-change") !== null &&
+      /will-change/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-will-change"><td>will-change:</td>` + `<td>${styles.getPropertyValue("will-change")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("width") &&
