@@ -68,23 +68,23 @@ The script will look for any element with the `data-bs-custom-class="css-inspect
 
 These CSS properties are displayed by default unless their value is null or empty. You can opt out of these rows with `data-css-inspector-hide`.
 
-| Property             | Opt-out attribute                              |
-| -------------------- | ---------------------------------------------- |
-| `background-color`   | `data-css-inspector-hide="bg-color"`           |
-| `border-radius`      | `data-css-inspector-hide="b-radius"`           |
-| `color`              | `data-css-inspector-hide="color"`              |
-| `font-size`          | `data-css-inspector-hide="font-size"`          |
-| `font-style`         | `data-css-inspector-hide="font-style"`         |
-| `font-weight`        | `data-css-inspector-hide="font-weight"`        |
-| `height`             | `data-css-inspector-hide="height"`             |
-| `margin`             | `data-css-inspector-hide="margin"`             |
-| `max-height`         | `data-css-inspector-hide="max-height"`         |
-| `max-width`          | `data-css-inspector-hide="max-width"`          |
-| `opacity`            | `data-css-inspector-hide="opacity"`            |
-| `padding`            | `data-css-inspector-hide="padding"`            |
-| `text-align`         | `data-css-inspector-hide="text-align"`         |
-| `text-transform`     | `data-css-inspector-hide="text-transform"`     |
-| `width`              | `data-css-inspector-hide="width"`              |
+| Property           | Opt-out attribute                          |
+| ------------------ | ------------------------------------------ |
+| `background-color` | `data-css-inspector-hide="bg-color"`       |
+| `border-radius`    | `data-css-inspector-hide="b-radius"`       |
+| `color`            | `data-css-inspector-hide="color"`          |
+| `font-size`        | `data-css-inspector-hide="font-size"`      |
+| `font-style`       | `data-css-inspector-hide="font-style"`     |
+| `font-weight`      | `data-css-inspector-hide="font-weight"`    |
+| `height`           | `data-css-inspector-hide="height"`         |
+| `margin`           | `data-css-inspector-hide="margin"`         |
+| `max-height`       | `data-css-inspector-hide="max-height"`     |
+| `max-width`        | `data-css-inspector-hide="max-width"`      |
+| `opacity`          | `data-css-inspector-hide="opacity"`        |
+| `padding`          | `data-css-inspector-hide="padding"`        |
+| `text-align`       | `data-css-inspector-hide="text-align"`     |
+| `text-transform`   | `data-css-inspector-hide="text-transform"` |
+| `width`            | `data-css-inspector-hide="width"`          |
 
 _Note: Most attributes are hidden if the value is none or null._
 
