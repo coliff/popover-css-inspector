@@ -14,3 +14,7 @@
 - All GitHub Actions should be pinned versions to avoid breaking changes (SHA-1).
 - If using actions/checkout, it should have `persist-credentials: false` set.
 - Dependencies should have a cooldown period of 7 days.
+
+## Pull Requests
+
+- Pull request descriptions should be a list of bullet points describing the changes made in the PR.
