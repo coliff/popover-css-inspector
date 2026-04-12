@@ -92,7 +92,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Deprecate previously published versions
-        if: ${{ secrets.NPM_TOKEN != '' }}
+        if: env.NODE_AUTH_TOKEN != ''
         run: |
           package_name="${{ steps.package.outputs.name }}"
           package_version="${{ steps.package.outputs.version }}"
