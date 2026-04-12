@@ -402,6 +402,16 @@ function createPopovers() {
         `<tr class="css-font-weight"><td>font-weight:</td>` + `<td>${styles.getPropertyValue("font-weight")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("font-variant") &&
+      styles.getPropertyValue("font-variant") !== "normal" &&
+      styles.getPropertyValue("font-variant") !== "" &&
+      styles.getPropertyValue("font-variant") !== null &&
+      /font-variant/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-font-variant"><td>font-variant:</td>` + `<td>${styles.getPropertyValue("font-variant")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("gap") &&
       styles.getPropertyValue("gap") !== "normal" &&
       styles.getPropertyValue("gap") !== "0px" &&
@@ -471,6 +481,15 @@ function createPopovers() {
       !/(?<!-)\bheight\b(?!-)/.test(hideProperties)
     ) {
       content += `<tr class="css-height"><td>height:</td>` + `<td>${styles.getPropertyValue("height")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("hyphens") &&
+      styles.getPropertyValue("hyphens") !== "manual" &&
+      styles.getPropertyValue("hyphens") !== "" &&
+      styles.getPropertyValue("hyphens") !== null &&
+      /hyphens/.test(showProperties)
+    ) {
+      content += `<tr class="css-hyphens"><td>hyphens:</td>` + `<td>${styles.getPropertyValue("hyphens")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("justify-content") &&
@@ -648,6 +667,26 @@ function createPopovers() {
       content += `<tr class="css-opacity"><td>opacity:</td>` + `<td>${styles.getPropertyValue("opacity")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("object-fit") &&
+      styles.getPropertyValue("object-fit") !== "fill" &&
+      styles.getPropertyValue("object-fit") !== "" &&
+      styles.getPropertyValue("object-fit") !== null &&
+      /object-fit/.test(showProperties)
+    ) {
+      content += `<tr class="css-object-fit"><td>object-fit:</td>` + `<td>${styles.getPropertyValue("object-fit")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("object-position") &&
+      styles.getPropertyValue("object-position") !== "50% 50%" &&
+      styles.getPropertyValue("object-position") !== "" &&
+      styles.getPropertyValue("object-position") !== null &&
+      /object-position/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-object-position"><td>object-position:</td>` +
+        `<td>${styles.getPropertyValue("object-position")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("overflow") &&
       styles.getPropertyValue("overflow") !== "" &&
       styles.getPropertyValue("overflow") !== null &&
@@ -670,6 +709,16 @@ function createPopovers() {
       /(?<!-)\boverflow-y\b(?!-)/.test(showProperties)
     ) {
       content += `<tr class="css-overflow-y"><td>overflow-y:</td>` + `<td>${styles.getPropertyValue("overflow-y")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("overflow-wrap") &&
+      styles.getPropertyValue("overflow-wrap") !== "normal" &&
+      styles.getPropertyValue("overflow-wrap") !== "" &&
+      styles.getPropertyValue("overflow-wrap") !== null &&
+      /overflow-wrap/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-overflow-wrap"><td>overflow-wrap:</td>` + `<td>${styles.getPropertyValue("overflow-wrap")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("padding") &&
@@ -743,6 +792,18 @@ function createPopovers() {
         `<td>${styles.getPropertyValue("text-decoration")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("text-decoration-thickness") &&
+      styles.getPropertyValue("text-decoration-thickness") !== "auto" &&
+      styles.getPropertyValue("text-decoration-thickness") !== "from-font" &&
+      styles.getPropertyValue("text-decoration-thickness") !== "" &&
+      styles.getPropertyValue("text-decoration-thickness") !== null &&
+      /text-decoration-thickness/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-text-decoration-thickness"><td>text-decoration-thickness:</td>` +
+        `<td>${styles.getPropertyValue("text-decoration-thickness")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("text-indent") &&
       styles.getPropertyValue("text-indent") !== "none" &&
       styles.getPropertyValue("text-indent") !== "" &&
@@ -763,6 +824,16 @@ function createPopovers() {
         `<tr class="css-text-shadow"><td>text-shadow:</td>` + `<td>${styles.getPropertyValue("text-shadow")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("text-overflow") &&
+      styles.getPropertyValue("text-overflow") !== "clip" &&
+      styles.getPropertyValue("text-overflow") !== "" &&
+      styles.getPropertyValue("text-overflow") !== null &&
+      /text-overflow/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-text-overflow"><td>text-overflow:</td>` + `<td>${styles.getPropertyValue("text-overflow")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("text-transform") &&
       styles.getPropertyValue("text-transform") !== "none" &&
       styles.getPropertyValue("text-transform") !== "" &&
@@ -772,6 +843,17 @@ function createPopovers() {
       content +=
         `<tr class="css-text-transform"><td>text-transform:</td>` +
         `<td>${styles.getPropertyValue("text-transform")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("text-underline-offset") &&
+      styles.getPropertyValue("text-underline-offset") !== "auto" &&
+      styles.getPropertyValue("text-underline-offset") !== "" &&
+      styles.getPropertyValue("text-underline-offset") !== null &&
+      /text-underline-offset/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-text-underline-offset"><td>text-underline-offset:</td>` +
+        `<td>${styles.getPropertyValue("text-underline-offset")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("text-wrap") &&
@@ -830,6 +912,16 @@ function createPopovers() {
     ) {
       content +=
         `<tr class="css-white-space"><td>white-space:</td>` + `<td>${styles.getPropertyValue("white-space")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("writing-mode") &&
+      styles.getPropertyValue("writing-mode") !== "horizontal-tb" &&
+      styles.getPropertyValue("writing-mode") !== "" &&
+      styles.getPropertyValue("writing-mode") !== null &&
+      /writing-mode/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-writing-mode"><td>writing-mode:</td>` + `<td>${styles.getPropertyValue("writing-mode")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("width") &&
