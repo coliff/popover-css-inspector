@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta17
+ * Popover CSS Inspector v1.0.0-beta18
  * Copyright 2023-2026 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -156,7 +156,7 @@ function createPopovers() {
       /b-bottom-color/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-bottom-border-color"><td>border-bottom-color:</td>` +
+        `<tr class="css-border-bottom-color"><td>border-bottom-color:</td>` +
         `<td>` +
         `<div class="css-swatch" style="background-color:${rgbToHex(borderBottomColor)}"></div><code>${rgbToHex(
           borderBottomColor,
@@ -233,7 +233,7 @@ function createPopovers() {
       styles.getPropertyValue("box-shadow") !== null &&
       /box-shadow/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-box-sizing"><td>box-shadow:</td>` + `<td>${styles.getPropertyValue("box-shadow")}</td></tr>`;
+      content += `<tr class="css-box-shadow"><td>box-shadow:</td>` + `<td>${styles.getPropertyValue("box-shadow")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("box-sizing") &&
@@ -471,7 +471,7 @@ function createPopovers() {
       styles.getPropertyValue("min-height") !== null &&
       /min-height/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-min-width"><td>min-height:</td>` + `<td>${styles.getPropertyValue("min-height")}</td></tr>`;
+      content += `<tr class="css-min-height"><td>min-height:</td>` + `<td>${styles.getPropertyValue("min-height")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("min-width") &&
@@ -522,7 +522,6 @@ function createPopovers() {
       styles.getPropertyValue("padding") !== "none" &&
       styles.getPropertyValue("padding") !== "" &&
       styles.getPropertyValue("padding") !== null &&
-      !styles.getPropertyValue("padding").includes(".") &&
       !/(?<!-)\bpadding\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
       content += `<tr class="css-padding"><td>padding:</td>` + `<td>${styles.getPropertyValue("padding")}</td></tr>`;
@@ -641,7 +640,6 @@ function createPopovers() {
       styles.getPropertyValue("white-space") !== "normal" &&
       styles.getPropertyValue("white-space") !== "" &&
       styles.getPropertyValue("white-space") !== null &&
-      !styles.getPropertyValue("white-space").includes(".") &&
       /white-space/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
@@ -652,7 +650,6 @@ function createPopovers() {
       styles.getPropertyValue("width") !== "none" &&
       styles.getPropertyValue("width") !== "" &&
       styles.getPropertyValue("width") !== null &&
-      !styles.getPropertyValue("width").includes(".") &&
       !/(?<!-)\bwidth\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
     ) {
       content += `<tr class="css-width"><td>width:</td>` + `<td>${styles.getPropertyValue("width")}</td></tr>`;
@@ -674,7 +671,7 @@ function createPopovers() {
       /word-spacing/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content +=
-        `<tr class="css-word-spacing "><td>word-spacing :</td>` + `<td>${styles.getPropertyValue("word-spacing ")}</td></tr>`;
+        `<tr class="css-word-spacing"><td>word-spacing:</td>` + `<td>${styles.getPropertyValue("word-spacing")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("word-wrap") &&
@@ -683,14 +680,13 @@ function createPopovers() {
       styles.getPropertyValue("word-wrap") !== null &&
       /word-wrap/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
-      content += `<tr class="css-word-wrap "><td>word-wrap :</td>` + `<td>${styles.getPropertyValue("word-wrap ")}</td></tr>`;
+      content += `<tr class="css-word-wrap"><td>word-wrap:</td>` + `<td>${styles.getPropertyValue("word-wrap")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("z-index") &&
       styles.getPropertyValue("z-index") !== "none" &&
       styles.getPropertyValue("z-index") !== "" &&
       styles.getPropertyValue("z-index") !== null &&
-      !styles.getPropertyValue("z-index").includes(".") &&
       /z-index/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content += `<tr class="css-z-index"><td>z-index:</td>` + `<td>${styles.getPropertyValue("z-index")}</td></tr>`;
@@ -761,9 +757,10 @@ function shouldRefreshPopovers(mutation) {
     return mutation.attributeName === "data-bs-theme" || target.matches(popoverSelector);
   }
 
-  return Array.from(mutation.addedNodes).some(
-    (node) => node.nodeType === Node.ELEMENT_NODE && (node.matches(popoverSelector) || node.querySelector(popoverSelector)),
-  );
+  const hasMatchingNode = (node) =>
+    node.nodeType === Node.ELEMENT_NODE && (node.matches(popoverSelector) || node.querySelector(popoverSelector));
+
+  return Array.from(mutation.addedNodes).some(hasMatchingNode) || Array.from(mutation.removedNodes).some(hasMatchingNode);
 }
 
 // Recreate popovers when the theme changes or matching nodes are added/updated

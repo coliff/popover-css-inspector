@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
-  "main": "popover-css-inspector.min.js",
+  "main": "js/popover-css-inspector.min.js",
   "files": [
     "js/*.js"
   ],
@@ -45,9 +45,9 @@
     "@size-limit/file": "^12.0.1",
     "eslint": "10.2.0",
     "eslint-config-prettier": "10.1.8",
-    "globals": "17.4.0",
+    "globals": "17.5.0",
     "htmlhint": "1.9.2",
-    "prettier": "3.8.1",
+    "prettier": "3.8.2",
     "size-limit": "^12.0.0",
     "terser": "5.46.1"
   },
