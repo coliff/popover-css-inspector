@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta18
+ * Popover CSS Inspector v1.0.0-beta19
  * Copyright 2023-2026 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -8,6 +8,10 @@ let popoverList = [];
 const popoverSelector = '[data-bs-custom-class*="popover-css-inspector"]';
 
 function createPopovers() {
+  if (typeof bootstrap === "undefined" || typeof bootstrap.Popover !== "function") {
+    return;
+  }
+
   const popoverTriggerList = [].slice.call(document.querySelectorAll(popoverSelector));
 
   // Dispose of existing popovers
@@ -21,6 +25,8 @@ function createPopovers() {
   // Create new popovers
   popoverList = popoverTriggerList.map((popoverTriggerEl) => {
     const styles = window.getComputedStyle(popoverTriggerEl);
+    const showProperties = popoverTriggerEl.getAttribute("data-css-inspector-show") || "";
+    const hideProperties = popoverTriggerEl.getAttribute("data-css-inspector-hide") || "";
     const bgColor = styles.getPropertyValue("background-color");
     const borderColor = styles.getPropertyValue("border-color");
     const borderBottomColor = styles.getPropertyValue("border-bottom-color");
@@ -34,6 +40,38 @@ function createPopovers() {
     ) {
       content +=
         `<tr class="css-accent-color"><td>accent-color:</td>` + `<td>${styles.getPropertyValue("accent-color")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("align-content") &&
+      styles.getPropertyValue("align-content") !== "normal" &&
+      styles.getPropertyValue("align-content") !== "stretch" &&
+      styles.getPropertyValue("align-content") !== "" &&
+      styles.getPropertyValue("align-content") !== null &&
+      /align-content/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-align-content"><td>align-content:</td>` + `<td>${styles.getPropertyValue("align-content")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("align-items") &&
+      styles.getPropertyValue("align-items") !== "normal" &&
+      styles.getPropertyValue("align-items") !== "stretch" &&
+      styles.getPropertyValue("align-items") !== "" &&
+      styles.getPropertyValue("align-items") !== null &&
+      /align-items/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-align-items"><td>align-items:</td>` + `<td>${styles.getPropertyValue("align-items")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("align-self") &&
+      styles.getPropertyValue("align-self") !== "auto" &&
+      styles.getPropertyValue("align-self") !== "normal" &&
+      styles.getPropertyValue("align-self") !== "" &&
+      styles.getPropertyValue("align-self") !== null &&
+      /align-self/.test(showProperties)
+    ) {
+      content += `<tr class="css-align-self"><td>align-self:</td>` + `<td>${styles.getPropertyValue("align-self")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("animation") &&
@@ -88,7 +126,7 @@ function createPopovers() {
       styles.getPropertyValue("background-color") !== "none" &&
       styles.getPropertyValue("background-color") !== "" &&
       styles.getPropertyValue("background-color") !== null &&
-      !/bg-color/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      !/bg-color/.test(hideProperties)
     ) {
       content +=
         `<tr class="css-background-color"><td>background-color:</td>` +
@@ -249,12 +287,22 @@ function createPopovers() {
       styles.getPropertyValue("color") !== "none" &&
       styles.getPropertyValue("color") !== "" &&
       styles.getPropertyValue("color") !== null &&
-      !/(?<!-)\bcolor\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      !/(?<!-)\bcolor\b(?!-)/.test(hideProperties)
     ) {
       content +=
         `<tr class="css-color"><td>color:</td>` +
         `<td>` +
         `<div class="css-swatch" style="background-color:${rgbToHex(color)}"></div><code>${rgbToHex(color)}</code></td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("column-gap") &&
+      styles.getPropertyValue("column-gap") !== "normal" &&
+      styles.getPropertyValue("column-gap") !== "0px" &&
+      styles.getPropertyValue("column-gap") !== "" &&
+      styles.getPropertyValue("column-gap") !== null &&
+      /column-gap/.test(showProperties)
+    ) {
+      content += `<tr class="css-column-gap"><td>column-gap:</td>` + `<td>${styles.getPropertyValue("column-gap")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("color-scheme") &&
@@ -292,6 +340,26 @@ function createPopovers() {
       /float/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
     ) {
       content += `<tr class="css-float"><td>float:</td>` + `<td>${styles.getPropertyValue("float")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("flex-direction") &&
+      styles.getPropertyValue("flex-direction") !== "row" &&
+      styles.getPropertyValue("flex-direction") !== "" &&
+      styles.getPropertyValue("flex-direction") !== null &&
+      /flex-direction/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-flex-direction"><td>flex-direction:</td>` +
+        `<td>${styles.getPropertyValue("flex-direction")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("flex-wrap") &&
+      styles.getPropertyValue("flex-wrap") !== "nowrap" &&
+      styles.getPropertyValue("flex-wrap") !== "" &&
+      styles.getPropertyValue("flex-wrap") !== null &&
+      /flex-wrap/.test(showProperties)
+    ) {
+      content += `<tr class="css-flex-wrap"><td>flex-wrap:</td>` + `<td>${styles.getPropertyValue("flex-wrap")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("font-family") &&
@@ -334,6 +402,68 @@ function createPopovers() {
         `<tr class="css-font-weight"><td>font-weight:</td>` + `<td>${styles.getPropertyValue("font-weight")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("gap") &&
+      styles.getPropertyValue("gap") !== "normal" &&
+      styles.getPropertyValue("gap") !== "0px" &&
+      styles.getPropertyValue("gap") !== "" &&
+      styles.getPropertyValue("gap") !== null &&
+      /(?<!-)\bgap\b(?!-)/.test(showProperties)
+    ) {
+      content += `<tr class="css-gap"><td>gap:</td>` + `<td>${styles.getPropertyValue("gap")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("grid-auto-flow") &&
+      styles.getPropertyValue("grid-auto-flow") !== "row" &&
+      styles.getPropertyValue("grid-auto-flow") !== "" &&
+      styles.getPropertyValue("grid-auto-flow") !== null &&
+      /grid-auto-flow/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-grid-auto-flow"><td>grid-auto-flow:</td>` +
+        `<td>${styles.getPropertyValue("grid-auto-flow")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("grid-column") &&
+      styles.getPropertyValue("grid-column") !== "auto" &&
+      styles.getPropertyValue("grid-column") !== "" &&
+      styles.getPropertyValue("grid-column") !== null &&
+      /grid-column/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-grid-column"><td>grid-column:</td>` + `<td>${styles.getPropertyValue("grid-column")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("grid-row") &&
+      styles.getPropertyValue("grid-row") !== "auto" &&
+      styles.getPropertyValue("grid-row") !== "" &&
+      styles.getPropertyValue("grid-row") !== null &&
+      /grid-row/.test(showProperties)
+    ) {
+      content += `<tr class="css-grid-row"><td>grid-row:</td>` + `<td>${styles.getPropertyValue("grid-row")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("grid-template-columns") &&
+      styles.getPropertyValue("grid-template-columns") !== "none" &&
+      styles.getPropertyValue("grid-template-columns") !== "" &&
+      styles.getPropertyValue("grid-template-columns") !== null &&
+      /grid-template-columns/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-grid-template-columns"><td>grid-template-columns:</td>` +
+        `<td>${styles.getPropertyValue("grid-template-columns")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("grid-template-rows") &&
+      styles.getPropertyValue("grid-template-rows") !== "none" &&
+      styles.getPropertyValue("grid-template-rows") !== "" &&
+      styles.getPropertyValue("grid-template-rows") !== null &&
+      /grid-template-rows/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-grid-template-rows"><td>grid-template-rows:</td>` +
+        `<td>${styles.getPropertyValue("grid-template-rows")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("height") &&
       styles.getPropertyValue("height") !== "none" &&
       styles.getPropertyValue("height") !== "" &&
@@ -345,6 +475,8 @@ function createPopovers() {
     if (
       styles.getPropertyValue("justify-content") &&
       styles.getPropertyValue("justify-content") !== "none" &&
+      styles.getPropertyValue("justify-content") !== "normal" &&
+      styles.getPropertyValue("justify-content") !== "start" &&
       styles.getPropertyValue("justify-content") !== "" &&
       styles.getPropertyValue("justify-content") !== null &&
       /justify-content/.test(popoverTriggerEl.getAttribute("data-css-inspector-show"))
@@ -352,6 +484,28 @@ function createPopovers() {
       content +=
         `<tr class="css-justify-content"><td>justify-content:</td>` +
         `<td>${styles.getPropertyValue("justify-content")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("justify-items") &&
+      styles.getPropertyValue("justify-items") !== "normal" &&
+      styles.getPropertyValue("justify-items") !== "stretch" &&
+      styles.getPropertyValue("justify-items") !== "" &&
+      styles.getPropertyValue("justify-items") !== null &&
+      /justify-items/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-justify-items"><td>justify-items:</td>` + `<td>${styles.getPropertyValue("justify-items")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("justify-self") &&
+      styles.getPropertyValue("justify-self") !== "auto" &&
+      styles.getPropertyValue("justify-self") !== "normal" &&
+      styles.getPropertyValue("justify-self") !== "" &&
+      styles.getPropertyValue("justify-self") !== null &&
+      /justify-self/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-justify-self"><td>justify-self:</td>` + `<td>${styles.getPropertyValue("justify-self")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("letter-spacing") &&
@@ -522,9 +676,31 @@ function createPopovers() {
       styles.getPropertyValue("padding") !== "none" &&
       styles.getPropertyValue("padding") !== "" &&
       styles.getPropertyValue("padding") !== null &&
-      !/(?<!-)\bpadding\b(?!-)/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      /(?<!-)\bpadding\b(?!-)/.test(showProperties)
     ) {
       content += `<tr class="css-padding"><td>padding:</td>` + `<td>${styles.getPropertyValue("padding")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("place-content") &&
+      styles.getPropertyValue("place-content") !== "normal" &&
+      styles.getPropertyValue("place-content") !== "stretch" &&
+      styles.getPropertyValue("place-content") !== "" &&
+      styles.getPropertyValue("place-content") !== null &&
+      /place-content/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-place-content"><td>place-content:</td>` + `<td>${styles.getPropertyValue("place-content")}</td></tr>`;
+    }
+    if (
+      styles.getPropertyValue("place-items") &&
+      styles.getPropertyValue("place-items") !== "normal" &&
+      styles.getPropertyValue("place-items") !== "stretch" &&
+      styles.getPropertyValue("place-items") !== "" &&
+      styles.getPropertyValue("place-items") !== null &&
+      /place-items/.test(showProperties)
+    ) {
+      content +=
+        `<tr class="css-place-items"><td>place-items:</td>` + `<td>${styles.getPropertyValue("place-items")}</td></tr>`;
     }
     if (
       styles.getPropertyValue("position") &&
@@ -535,12 +711,22 @@ function createPopovers() {
       content += `<tr class="css-position"><td>position:</td>` + `<td>${styles.getPropertyValue("position")}</td></tr>`;
     }
     if (
+      styles.getPropertyValue("row-gap") &&
+      styles.getPropertyValue("row-gap") !== "normal" &&
+      styles.getPropertyValue("row-gap") !== "0px" &&
+      styles.getPropertyValue("row-gap") !== "" &&
+      styles.getPropertyValue("row-gap") !== null &&
+      /row-gap/.test(showProperties)
+    ) {
+      content += `<tr class="css-row-gap"><td>row-gap:</td>` + `<td>${styles.getPropertyValue("row-gap")}</td></tr>`;
+    }
+    if (
       styles.getPropertyValue("text-align") &&
       styles.getPropertyValue("text-align") !== "none" &&
       styles.getPropertyValue("text-align") !== "start" &&
       styles.getPropertyValue("text-align") !== "" &&
       styles.getPropertyValue("text-align") !== null &&
-      !/text-align/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      /text-align/.test(showProperties)
     ) {
       content += `<tr class="css-text-align"><td>text-align:</td>` + `<td>${styles.getPropertyValue("text-align")}</td></tr>`;
     }
@@ -581,7 +767,7 @@ function createPopovers() {
       styles.getPropertyValue("text-transform") !== "none" &&
       styles.getPropertyValue("text-transform") !== "" &&
       styles.getPropertyValue("text-transform") !== null &&
-      !/text-transform/.test(popoverTriggerEl.getAttribute("data-css-inspector-hide"))
+      /text-transform/.test(showProperties)
     ) {
       content +=
         `<tr class="css-text-transform"><td>text-transform:</td>` +
