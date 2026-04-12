@@ -82,20 +82,43 @@ jobs:
             echo "already_published=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Resolve npm dist-tag
-        id: dist_tag
-        run: |
-          version="${{ steps.package.outputs.version }}"
-
-          if [[ "$version" == *-* ]]; then
-            echo "dist_tag=next" >> "$GITHUB_OUTPUT"
-          else
-            echo "dist_tag=latest" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Run build
         run: npm run build
 
       - name: Publish npm Package Publicly
         if: steps.published.outputs.already_published != 'true'
-        run: npm publish --access public --tag "${{ steps.dist_tag.outputs.dist_tag }}"
+        run: npm publish --access public --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deprecate previously published versions
+        if: steps.published.outputs.already_published != 'true' && env.NODE_AUTH_TOKEN != ''
+        run: |
+          package_name="${{ steps.package.outputs.name }}"
+          package_version="${{ steps.package.outputs.version }}"
+          deprecation_message="This version has been deprecated. Please use ${package_name}@${package_version}."
+
+          npm deprecate "${package_name}@${package_version}" "" || true
+
+          versions_json=$(npm view "$package_name" versions --json)
+          previous_versions=$(node -e '
+            const versions = JSON.parse(process.argv[1]);
+            const currentVersion = process.argv[2];
+            const list = Array.isArray(versions) ? versions : [versions];
+            console.log(list.filter((version) => version && version !== currentVersion).join("\n"));
+          ' "$versions_json" "$package_version")
+
+          if [ -z "$previous_versions" ]; then
+            echo "No previous versions to deprecate."
+            exit 0
+          fi
+
+          while IFS= read -r version; do
+            if [ -n "$version" ]; then
+              npm deprecate "${package_name}@${version}" "$deprecation_message"
+            fi
+          done <<EOF
+          $previous_versions
+          EOF
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

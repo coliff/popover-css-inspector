@@ -1,7 +1,7 @@
 [
   {
     "path": "js/popover-css-inspector.js",
-    "limit": "5 kB",
+    "limit": "7 kB",
     "gzip": true
   }
 ]
