@@ -10,29 +10,26 @@ const ecma = typeof ecmaVersion === "number" ? ecmaVersion : 2022;
 const srcPath = path.join(root, "js", "popover-css-inspector.js");
 const outPath = path.join(root, "js", "popover-css-inspector.min.js");
 
-function syncBannerVersion() {
-  const code = fs.readFileSync(srcPath, "utf8");
+/**
+ * Returns source with the license banner `v…` aligned to package.json `version`.
+ * Does not read or write the filesystem.
+ */
+function withSyncedBanner(code) {
   if (!/\*\s*Popover CSS Inspector\s+v[\d\w.-]+/.test(code)) {
     throw new Error(
       `Expected a license banner line matching "* Popover CSS Inspector v…" in ${path.relative(root, srcPath)}`,
     );
   }
-  const next = code.replace(
+  return code.replace(
     /(\*\s*Popover CSS Inspector\s+)v[\d\w.-]+/,
     `$1v${version}`,
   );
-  if (next === code) {
-    return;
-  }
-  fs.writeFileSync(srcPath, next);
-  console.log(
-    `Updated banner in ${path.relative(root, srcPath)} to v${version}`,
-  );
 }
 
-async function minify() {
-  const code = fs.readFileSync(srcPath, "utf8");
-  const result = await terser.minify(code, {
+async function main() {
+  const original = fs.readFileSync(srcPath, "utf8");
+  const sourceForMinify = withSyncedBanner(original);
+  const result = await terser.minify(sourceForMinify, {
     ecma,
     compress: true,
     mangle: true,
@@ -43,11 +40,12 @@ async function minify() {
     throw result.error;
   }
   fs.writeFileSync(outPath, result.code);
-}
-
-async function main() {
-  syncBannerVersion();
-  await minify();
+  if (sourceForMinify !== original) {
+    fs.writeFileSync(srcPath, sourceForMinify);
+    console.log(
+      `Updated banner in ${path.relative(root, srcPath)} to v${version}`,
+    );
+  }
 }
 
 main().catch((failure) => {
