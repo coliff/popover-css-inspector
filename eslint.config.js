@@ -336,7 +336,7 @@ module.exports = [
     },
   },
   {
-    files: ["**/*.js"],
+    files: ["js/**/*.js"],
     languageOptions: {
       ecmaVersion,
       sourceType: "module",
@@ -348,7 +348,7 @@ module.exports = [
   },
   js.configs.recommended,
   {
-    files: ["**/*.js", "**/*.cjs"],
+    files: ["js/**/*.js", "**/*.cjs", "eslint.config.js"],
     rules,
   },
   {
