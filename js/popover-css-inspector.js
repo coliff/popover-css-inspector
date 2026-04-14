@@ -1,5 +1,5 @@
 /*!
- * Popover CSS Inspector v1.0.0-beta20
+ * Popover CSS Inspector v1.0.0-beta21
  * Copyright 2023-2026 C.Oliff
  * Licensed under MIT (https://github.com/coliff/popover-css-inspector/blob/main/LICENSE)
  */
@@ -86,7 +86,7 @@ function createPopovers() {
       styles.getPropertyValue("animation-name") !== "none" &&
       styles.getPropertyValue("animation-name") !== "" &&
       styles.getPropertyValue("animation-name") !== null &&
-      /animation-name/.test(showProperties)
+      !/animation-name/.test(hideProperties)
     ) {
       content +=
         `<tr class="css-animation-name"><td>animation-name:</td>` +
@@ -97,7 +97,7 @@ function createPopovers() {
       styles.getPropertyValue("animation-duration") !== "0s" &&
       styles.getPropertyValue("animation-duration") !== "" &&
       styles.getPropertyValue("animation-duration") !== null &&
-      /animation-duration/.test(showProperties)
+      !/animation-duration/.test(hideProperties)
     ) {
       content +=
         `<tr class="css-animation-duration"><td>animation-duration:</td>` +

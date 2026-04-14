@@ -1,6 +1,6 @@
 {
   "name": "popover-css-inspector",
-  "version": "1.0.0-beta20",
+  "version": "1.0.0-beta21",
   "description": "Displays CSS attributes of elements in a Bootstrap popover. Ideal for design systems and style guides.",
   "keywords": [
     "bootstrap",
@@ -20,6 +20,7 @@
     "url": "https://github.com/sponsors/coliff"
   },
   "license": "MIT",
+  "ecmaVersion": 2022,
   "author": "Christian Oliff (https://christianoliff.com)",
   "main": "js/popover-css-inspector.min.js",
   "files": [
@@ -29,11 +30,11 @@
     "build": "npm run prettier && npm run lint-js && npm run minify",
     "lint": "npm run lint-html && npm run lint-js",
     "lint-html": "htmlhint index.html",
-    "lint-js": "eslint js/popover-css-inspector.js --fix",
+    "lint-js": "eslint js/popover-css-inspector.js scripts/build.cjs --fix",
     "lint-markdown": "npx markdownlint-cli .",
-    "minify": "terser --ecma 5 --keep-classnames --keep-fnames --compress --mangle --output js/popover-css-inspector.min.js -- js/popover-css-inspector.js",
+    "minify": "node scripts/build.cjs",
     "pa11y": "npx pa11y https://coliff.github.io/popover-css-inspector/",
-    "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
+    "prettier": "prettier --write \"**/*.{cjs,html,js,json,md,yml}\"",
     "serve": "npx http-server -o /index.html -p 8080 -c-1",
     "size": "size-limit",
     "spellcheck": "npx cspell \"*.*\" --no-progress",

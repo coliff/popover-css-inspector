@@ -1,6 +1,7 @@
 const js = require("@eslint/js");
 const globals = require("globals");
 const prettier = require("eslint-config-prettier/flat");
+const { ecmaVersion } = require("./package.json");
 
 const rules = {
   "array-callback-return": ["error", { allowImplicit: false, checkForEach: true }],
@@ -317,7 +318,17 @@ module.exports = [
   {
     files: ["eslint.config.js"],
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion,
+      sourceType: "commonjs",
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      ecmaVersion,
       sourceType: "commonjs",
       globals: {
         ...globals.node,
@@ -327,7 +338,7 @@ module.exports = [
   {
     files: ["**/*.js"],
     languageOptions: {
-      ecmaVersion: 2022,
+      ecmaVersion,
       sourceType: "module",
       globals: {
         bootstrap: "readonly",
@@ -337,13 +348,19 @@ module.exports = [
   },
   js.configs.recommended,
   {
-    files: ["**/*.js"],
+    files: ["**/*.js", "**/*.cjs"],
     rules,
   },
   {
     files: ["js/popover-css-inspector.js"],
     rules: {
       "max-lines": "off",
+    },
+  },
+  {
+    files: ["scripts/build.cjs"],
+    rules: {
+      "no-console": "off",
     },
   },
   prettier,
