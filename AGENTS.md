@@ -10,6 +10,7 @@ Use this file as the first-stop guide for coding agents working in this repo.
 
 - `js/popover-css-inspector.js`: primary source file and the main place for feature work or bug fixes.
 - `js/popover-css-inspector.min.js`: built artifact generated from the main source file with `terser`.
+- `scripts/build.cjs`: syncs the `v…` banner in the primary source to `package.json` `version`, then minifies with `terser`.
 - `index.html`: local demo page used for manual verification.
 - `README.md`: public documentation and usage examples.
 - `.github/workflows/*.yml`: CI, release, and publishing workflows.
@@ -34,11 +35,11 @@ Use this file as the first-stop guide for coding agents working in this repo.
 ## Commands
 
 - Install dependencies: `npm ci`
-- Lint JS: `npm run lint-js`
+- Lint JS: `npm run lint-js` (primary source and `scripts/build.cjs`)
 - Lint all configured checks: `npm run lint`
 - Format files: `npm run prettier`
 - Build distributable output: `npm run build`
-- Regenerate minified file only: `npm run minify`
+- Regenerate minified file (and banner version) only: `npm run minify`
 - Run size check: `npm run size`
 - Serve demo locally: `npm run serve`
 - Markdown lint: `npm run lint-markdown`

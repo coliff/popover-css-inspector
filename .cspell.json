@@ -1,15 +1,20 @@
 {
   "version": "0.2",
-  "ignorePaths": ["*.min.js", "node_modules/**", ".cspell.json", "*.yml"],
+  "ignorePaths": [
+    "*.min.js",
+    "node_modules/**",
+    ".cspell.json",
+    "*.yml"
+  ],
   "words": [
     "borderless",
     "christianoliff",
     "codeql",
     "CODESPELL",
     "coliff",
-    "cooldown",
     "COMMITLINT",
     "Consolas",
+    "cooldown",
     "dbaeumer",
     "esbenp",
     "fediverse",
@@ -29,8 +34,9 @@
     "Roboto",
     "SARIF",
     "Segoe",
-    "zizmor",
-    "worktree"
+    "tagname",
+    "worktree",
+    "zizmor"
   ],
   "flagWords": [
     "hte"
