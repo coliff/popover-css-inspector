@@ -927,11 +927,10 @@ function createPopovers() {
     }
     if (
       styles.getPropertyValue("text-decoration") &&
-      styles.getPropertyValue("text-decoration") !== "none" &&
-      styles.getPropertyValue("text-decoration") !== "start" &&
+      styles.getPropertyValue("text-decoration-line") !== "none" &&
       styles.getPropertyValue("text-decoration") !== "" &&
       styles.getPropertyValue("text-decoration") !== null &&
-      /text-decoration/.test(showProperties)
+      /(?<!-)\btext-decoration\b(?!-)/.test(showProperties)
     ) {
       content +=
         `<tr class="css-text-decoration"><td>text-decoration:</td>` +
@@ -1245,7 +1244,7 @@ function createPopovers() {
     }
 
     function hex(x) {
-      return `0${parseInt(x).toString(16)}`.slice(-2);
+      return `0${parseInt(x, 10).toString(16)}`.slice(-2);
     }
   });
 }
@@ -1256,7 +1255,9 @@ createPopovers();
 function shouldRefreshPopovers(mutation) {
   if (mutation.type === "attributes") {
     const { target } = mutation;
-    return mutation.attributeName === "data-bs-theme" || target.matches(popoverSelector);
+    const wasInspector =
+      mutation.attributeName === "data-bs-custom-class" && /popover-css-inspector/.test(mutation.oldValue || "");
+    return mutation.attributeName === "data-bs-theme" || wasInspector || target.matches(popoverSelector);
   }
 
   const hasMatchingNode = (node) =>
@@ -1276,6 +1277,7 @@ const popoverObserver = new MutationObserver((mutations) => {
 
 // Start observing theme and DOM changes
 popoverObserver.observe(document.documentElement, {
+  attributeOldValue: true,
   attributeFilter: ["data-bs-theme", "data-bs-custom-class", "data-css-inspector-show", "data-css-inspector-hide"],
   attributes: true,
   childList: true,

@@ -52,13 +52,13 @@ Several quick start options are available:
 
 3. Some CSS properties are opt-in only. For example, to show border properties, add `data-css-inspector-show="border"` to the element.
 
-4. All CSS properties can be hidden. For example, to hide font-size properties, add `data-css-inspector-hide="font-size"` to the element.
+4. CSS properties shown by default can be hidden. For example, to hide font-size properties, add `data-css-inspector-hide="font-size"` to the element.
 
 5. Optional. Consider adding the [`pe-none`](https://getbootstrap.com/docs/5.3/utilities/interactions/#pointer-events) class to the element to prevent the popover from being triggered by the user.
 
 ## How it works
 
-The script will look for any element with the `data-bs-custom-class="css-inspector"` attribute and add a click event listener to it. When clicked, it will get the element's CSS attributes and display them in a Bootstrap popover.
+The script looks for any element whose `data-bs-custom-class` attribute contains `popover-css-inspector`, reads the element's computed CSS properties, and displays them in a Bootstrap popover that is shown immediately. Popovers are refreshed automatically when matching elements are added, removed, or updated, or when the `data-bs-theme` attribute changes.
 
 ## Demo
 
@@ -83,9 +83,6 @@ These CSS properties are displayed by default unless their value is null or empt
 | `max-height`         | `data-css-inspector-hide="max-height"`         |
 | `max-width`          | `data-css-inspector-hide="max-width"`          |
 | `opacity`            | `data-css-inspector-hide="opacity"`            |
-| `padding`            | `data-css-inspector-hide="padding"`            |
-| `text-align`         | `data-css-inspector-hide="text-align"`         |
-| `text-transform`     | `data-css-inspector-hide="text-transform"`     |
 | `width`              | `data-css-inspector-hide="width"`              |
 
 _Note: Most attributes are hidden if the value is none or null._
@@ -162,16 +159,19 @@ These CSS properties are hidden by default and are only shown when included in `
 | `overflow-wrap`              | `data-css-inspector-show="overflow-wrap"`              |
 | `outline`                    | `data-css-inspector-show="outline"`                    |
 | `outline-offset`             | `data-css-inspector-show="outline-offset"`             |
+| `padding`                    | `data-css-inspector-show="padding"`                    |
 | `place-content`              | `data-css-inspector-show="place-content"`              |
 | `place-items`                | `data-css-inspector-show="place-items"`                |
 | `pointer-events`             | `data-css-inspector-show="pointer-events"`             |
 | `position`                   | `data-css-inspector-show="position"`                   |
 | `row-gap`                    | `data-css-inspector-show="row-gap"`                    |
+| `text-align`                 | `data-css-inspector-show="text-align"`                 |
 | `text-decoration`            | `data-css-inspector-show="text-decoration"`            |
 | `text-decoration-thickness`  | `data-css-inspector-show="text-decoration-thickness"`  |
 | `text-indent`                | `data-css-inspector-show="text-indent"`                |
 | `text-overflow`              | `data-css-inspector-show="text-overflow"`              |
 | `text-shadow`                | `data-css-inspector-show="text-shadow"`                |
+| `text-transform`             | `data-css-inspector-show="text-transform"`             |
 | `text-underline-offset`      | `data-css-inspector-show="text-underline-offset"`      |
 | `text-wrap`                  | `data-css-inspector-show="text-wrap"`                  |
 | `transform`                  | `data-css-inspector-show="transform"`                  |
