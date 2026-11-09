@@ -11,6 +11,7 @@ permissions: read-all
 jobs:
   analysis:
     name: Scorecards analysis
+    # Stays on ubuntu-latest: ossf/scorecard-action is a Docker container action (ubuntu-slim has no Docker)
     runs-on: ubuntu-latest
     if: github.repository == 'coliff/popover-css-inspector'
     permissions:
