@@ -19,6 +19,7 @@ jobs:
       pull-requests: write
       statuses: write
     name: Lint Code Base
+    # Stays on ubuntu-latest: super-linter runs as a Docker container (ubuntu-slim has no Docker)
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
 

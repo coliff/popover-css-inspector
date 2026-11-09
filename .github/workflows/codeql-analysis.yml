@@ -17,6 +17,7 @@ permissions:
 jobs:
   analyze:
     name: Analyze
+    # Stays on ubuntu-latest: CodeQL analysis needs more CPU/RAM than ubuntu-slim provides
     runs-on: ubuntu-latest
     if: ${{ github.actor != 'dependabot[bot]' }}
 
